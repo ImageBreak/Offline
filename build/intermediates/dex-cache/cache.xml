@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="D:\Android studio pro\Mystore\app\libs\aseo2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="07cbe16c3e33aef277b253a8e8f452bda59c58ef">
+        <dex dex="D:\Android studio pro\Mystore\app\build\intermediates\pre-dexed\debug\aseo2-089a9bdeda9a529c921bbef64ae4d2a34b57792a.jar" />
+    </item>
+    <item
+        jar="D:\Android studio pro\Mystore\app\libs\cu_volley.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="77faa9ffd189160d1e22c58fdf5eed0a9a08b816">
+        <dex dex="D:\Android studio pro\Mystore\app\build\intermediates\pre-dexed\debug\cu_volley-1424e54aa60a956b228d7227b6549dc6aa01070e.jar" />
+    </item>
+    <item
+        jar="D:\Android studio pro\Mystore\app\libs\httpcore.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="42fd0eaeee98eb9e1c8cfbcef742a34b54522c4c">
+        <dex dex="D:\Android studio pro\Mystore\app\build\intermediates\pre-dexed\debug\httpcore-9be91323d490a2edb5156523a36cf5fb2ea821de.jar" />
+    </item>
+    <item
+        jar="D:\Android studio pro\Mystore\app\libs\core.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="c6f3cdc572ddfd37a19f1c1fdb96cda324e8a12a">
+        <dex dex="D:\Android studio pro\Mystore\app\build\intermediates\pre-dexed\debug\core-aea45aefcb8188dcd8089ffd43f879a85aa96c3f.jar" />
+    </item>
+
+</items>

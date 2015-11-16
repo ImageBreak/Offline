@@ -1,0 +1,66 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF" >
+
+    <com.itau.jingdong.xListview.XListView
+        android:id="@+id/listView_ware"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="#00000000" />
+
+    <LinearLayout
+        android:id="@+id/ll_choice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#EDECEC"
+        android:orientation="vertical"
+        android:paddingBottom="5dp" >
+
+        <LinearLayout
+            android:id="@+id/search_top_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/android_title_bg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:src="@drawable/tb_icon_actionbar_back" />
+
+            <com.itau.jingdong.widgets.AutoClearEditText
+                android:id="@+id/ed_Searchware"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/search_box"
+                android:drawableRight="@drawable/app_icon_voice"
+                android:focusable="true"
+                android:hint="@string/index_search_edit_hint"
+                android:padding="6dp"
+                android:singleLine="true"
+                android:textColor="@color/darkgray"
+                android:textSize="@dimen/micro_text_size" />
+
+            <ImageButton
+                android:id="@+id/search_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/app_home_title_r_button_selector"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:src="@drawable/android_search_icon" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout><!-- From: file:/D:/Android%20studio%20pro/Mystore/app/src/main/res/layout/ware_a.xml -->
