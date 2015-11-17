@@ -34,7 +34,7 @@ private LoginActivity loginActivity=null;
 	private ToggleButton isShowPassword;
 	private boolean isDisplayflag=false;//是否显示密码
 	private String getpassword;
-	private Button loginBtn,register;
+	private Button loginBtn,register,upload;
 	private Intent mIntent;
 	private String serverAddress="http://mdemo.e-cology.cn/login.do";
 	public static String MOBILE_SERVERS_URL="http://mserver.e-cology.cn/servers.do";
@@ -62,6 +62,7 @@ private LoginActivity loginActivity=null;
 		isShowPassword=(ToggleButton)this.findViewById(R.id.isShowPassword);
 		loginBtn=(Button)this.findViewById(R.id.login);
 		register=(Button)this.findViewById(R.id.register);
+		upload=(Button)this.findViewById(R.id.upload);
 		
 		getpassword=loginpassword.getText().toString();
 	}

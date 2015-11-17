@@ -29,7 +29,7 @@ import java.util.HashMap;
  */
 @SuppressLint("CommitPrefEdits")
 public class BabyPopWindow implements OnDismissListener, OnClickListener {
-	private TextView pop_choice_16g,pop_choice_32g,pop_choice_16m,pop_choice_32m,pop_choice_black,pop_choice_white,pop_add,pop_reduce,pop_num,pop_ok;
+	private TextView pop_choice_16g,pop_choice_32g,pop_choice_16m,pop_choice_32m,pop_choice_black,pop_choice_white,pop_add,pop_reduce,pop_num,pop_ok,pop_price,pop_amount;
 	private ImageView pop_del;
 	
 	private PopupWindow popupWindow;
@@ -55,6 +55,8 @@ public class BabyPopWindow implements OnDismissListener, OnClickListener {
 		pop_reduce=(TextView) view.findViewById(R.id.pop_reduce);
 		pop_num=(TextView) view.findViewById(R.id.pop_num);
 		pop_ok=(TextView) view.findViewById(R.id.pop_ok);
+		pop_price=(TextView) view.findViewById(R.id.pop_price);
+		pop_amount=(TextView) view.findViewById(R.id.pop_amount);
 		pop_del=(ImageView) view.findViewById(R.id.pop_del);
 		
 		pop_choice_16g.setOnClickListener(this);
@@ -67,9 +69,10 @@ public class BabyPopWindow implements OnDismissListener, OnClickListener {
 		pop_reduce.setOnClickListener(this);
 		pop_ok.setOnClickListener(this);
 		pop_del.setOnClickListener(this);
-		
-		
-		
+
+		//pop_price.setText();
+		//pop_amount.setText();
+
 		popupWindow=new PopupWindow(view, LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 		//设置popwindow的动画效果
 		popupWindow.setAnimationStyle(R.style.popWindow_anim_style);
@@ -163,7 +166,7 @@ public class BabyPopWindow implements OnDismissListener, OnClickListener {
 			str_color=pop_choice_white.getText().toString();
 			break;
 		case R.id.pop_add:
-			if (!pop_num.getText().toString().equals("750")) {
+			if (!pop_num.getText().toString().equals(pop_amount.getText().toString())) {
 				
 				String num_add= Integer.valueOf(pop_num.getText().toString())+ADDORREDUCE+"";
 				pop_num.setText(num_add);
@@ -192,12 +195,15 @@ public class BabyPopWindow implements OnDismissListener, OnClickListener {
 			}else if (str_type.equals("")) {
 				Toast.makeText(context, "亲，你还没有选择类型哟~", Toast.LENGTH_SHORT).show();
 			}else {
+				Toast.makeText(context, "添加到购物车成功", Toast.LENGTH_SHORT).show();
 				HashMap<String, Object> allHashMap=new HashMap<String,Object>();
 				
 				allHashMap.put("color",str_color);
 				allHashMap.put("type",str_type);
 				allHashMap.put("num",pop_num.getText().toString());
 				allHashMap.put("id",Data.arrayList_cart_id+=1);
+				allHashMap.put("price",pop_price.getText().toString());
+				allHashMap.put("amount",pop_amount.getText().toString());//1111111
 				
 				Data.arrayList_cart.add(allHashMap);
 				setSaveData();

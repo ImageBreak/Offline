@@ -28,7 +28,7 @@ public class PersonalActivity extends BaseActivity implements OnClickListener {
 	private CustomScrollView mScrollView = null;
 	private Intent mIntent=null;
 	private ExitView exit;
-	private LinearLayout Ly_login,Ly_Other;
+	private LinearLayout Ly_login,Ly_Other,mHistory,mFavourite,mStore;
 	private RelativeLayout Ly_personalInfo;
 	private TextView username;
 	private int LOGIN_CODE=100;
@@ -50,8 +50,10 @@ public class PersonalActivity extends BaseActivity implements OnClickListener {
 		mScrollView = (CustomScrollView) findViewById(R.id.personal_scrollView);
 		mMoreButton=(Button)this.findViewById(R.id.personal_more_button);
 		mExitButton=(Button)this.findViewById(R.id.personal_exit);
-		
-		
+
+		mHistory=(LinearLayout)findViewById(R.id.mhistory);
+		mFavourite=(LinearLayout)findViewById(R.id.mfavourite);
+		mStore=(LinearLayout)findViewById(R.id.mstore);
 		Ly_login=(LinearLayout)findViewById(R.id.login);
 		Ly_personalInfo=(RelativeLayout)findViewById(R.id.personal);
 		Ly_Other=(LinearLayout)findViewById(R.id.other_layout);
@@ -66,7 +68,9 @@ public class PersonalActivity extends BaseActivity implements OnClickListener {
 		mLoginButton.setOnClickListener(this);
 		mMoreButton.setOnClickListener(this);
 		mExitButton.setOnClickListener(this);
-		
+		mHistory.setOnClickListener(this);
+		mFavourite.setOnClickListener(this);
+		mStore.setOnClickListener(this);
 	}
 
 	@Override
@@ -83,15 +87,29 @@ public class PersonalActivity extends BaseActivity implements OnClickListener {
 			mIntent=new Intent(PersonalActivity.this, MoreActivity.class);
 			startActivity(mIntent);
 			break;
-			
+
+		case R.id.mhistory:
+			mIntent=new Intent(PersonalActivity.this,PersonalHistory.class);
+			startActivity(mIntent);
+			break;
+
+		case R.id.mstore:
+			mIntent=new Intent(PersonalActivity.this,PersonalStore.class);
+			startActivity(mIntent);
+			break;
+
+		case R.id.mfavourite:
+			mIntent=new Intent(PersonalActivity.this,PersonalFavouriteActivity.class);
+			startActivity(mIntent);
+			break;
+
 		case R.id.personal_exit:
 			
 			//实例化SelectPicPopupWindow
 			exit = new ExitView(PersonalActivity.this, itemsOnClick);
 			//显示窗口
 			exit.showAtLocation(PersonalActivity.this.findViewById(R.id.layout_personal), Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0); //设置layout在PopupWindow中显示的位置
-			
-			
+
 			break;
 			
 		default:

@@ -57,7 +57,6 @@ public class Adapter_ListView_ware extends BaseAdapter {
 			holderView.iv_pic = (ImageView) currentView.findViewById(R.id.iv_adapter_list_pic);
 			holderView.tv_name = (TextView) currentView.findViewById(R.id.name);
 			holderView.tv_price = (TextView) currentView.findViewById(R.id.price);
-			holderView.tv_sale_num = (TextView) currentView.findViewById(R.id.sale_num);
 			currentView.setTag(holderView);
 		} else {
 			holderView = (HolderView) currentView.getTag();
@@ -69,7 +68,7 @@ public class Adapter_ListView_ware extends BaseAdapter {
 
 			holderView.tv_name.setText(arrayList.get(position).get("name").toString());
 			holderView.tv_price.setText("￥" + arrayList.get(position).get("price").toString() + "元");
-			holderView.tv_sale_num.setText("月销量:" + arrayList.get(position).get("sale_num").toString() + "件     " + arrayList.get(position).get("address").toString());
+			//holderView.tv_sale_num.setText("月销量:" + arrayList.get(position).get("sale_num").toString() + "件     " + arrayList.get(position).get("address").toString());
 		}
 		return currentView;
 	}
@@ -77,7 +76,7 @@ public class Adapter_ListView_ware extends BaseAdapter {
 	public class HolderView {
 
 		private ImageView iv_pic;
-		private TextView tv_sale_num;
+		//private TextView tv_sale_num;
 		private TextView tv_name;
 		private TextView tv_price;
 

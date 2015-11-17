@@ -85,7 +85,7 @@
     <string name="find_password">找回密码</string>
     <string name="usecooperationaccount">用合作网站帐户登录</string>
     <string name="registerfree">免费注册</string>
-    <string name="login_loading">正在登錄，請稍候。。</string>
+    <string name="login_loading">正在登陆，请稍后。。</string>
     
     
 <!--  购物车 -->
@@ -114,7 +114,7 @@
 <string name="register_in_normal">普通用户注册</string>
 <string name="register_normal_useraccount">帐户名：</string>
 <string name="register_normal_useraccount_hint">  请输入你的手机号</string>
-<string name="register_normal_email">邮箱：</string>
+<string name="register_normal_email">支付宝：</string>
 <string name="register_normal_email_hint">  请输入邮箱帐号</string>
 <string name="register_normal_password">密码：</string>
 <string name="register_normal_password_hint">  请输入密码</string>

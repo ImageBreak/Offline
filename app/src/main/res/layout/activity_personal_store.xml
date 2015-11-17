@@ -16,117 +16,66 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dip"
-            android:text="@string/register_in_normal"
+            android:text="添加我的商品"
             android:textColor="#ffffff"
             android:textSize="15.0dip" />
     </LinearLayout>
 
-   <LinearLayout
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="40dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="35dp"
-         >
-        
-       <TextView
+        >
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="@string/register_normal_useraccount"
+            android:text="商品名："
             android:textColor="@color/black" />
-       
+
         <EditText
-            android:id="@+id/U_name"
+            android:id="@+id/S_name"
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
             android:layout_marginLeft="20dp"
             android:inputType="number"
-           android:background="@drawable/category_selection_gridview_bg"
-            android:layout_gravity="center_vertical"
-            />
-        
-    </LinearLayout>
-    
-   
-      <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="40dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-         >
-        
-       <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="@string/register_normal_email"
-            android:textColor="@color/black" />
-       
-        <EditText
-            android:id="@+id/U_pay"
-            android:layout_height="wrap_content"
-            android:layout_width="fill_parent"
-            android:layout_marginLeft="20dp"
             android:background="@drawable/category_selection_gridview_bg"
             android:layout_gravity="center_vertical"
             />
-        
+
     </LinearLayout>
-    
-         <LinearLayout
+
+
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="40dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
-         >
-        
-       <TextView
+        >
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="@string/register_normal_password"
+            android:text="价格："
             android:textColor="@color/black" />
-       
+
         <EditText
-            android:id="@+id/U_pass"
+            android:id="@+id/S_price"
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
             android:layout_marginLeft="35dp"
-            android:inputType="textPassword"
+            android:inputType="number"
             android:background="@drawable/category_selection_gridview_bg"
             android:layout_gravity="center_vertical"
             />
-        
+
     </LinearLayout>
-    
-            <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="40dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-         >
-        
-       <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="@string/register_normal_repassword"
-            android:textColor="@color/black" />
-       
-        <EditText 
-            android:layout_height="wrap_content"
-            android:layout_width="fill_parent"
-            android:layout_marginLeft="10dp"
-            android:inputType="textPassword"
-            android:background="@drawable/category_selection_gridview_bg"
-            android:layout_gravity="center_vertical"
-            />
-        
-    </LinearLayout>
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="40dp"
@@ -150,16 +99,17 @@
 
 
     </LinearLayout>
-            
-            <Button
-                android:id="@+id/login"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/edit_product_num_cancle_normal"
-                android:gravity="center"
-                android:text="注册"
-                android:textSize="16sp" />
-            
+
+
+    <Button
+        android:id="@+id/confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/edit_product_num_cancle_normal"
+        android:gravity="center"
+        android:text="确定"
+        android:textSize="16sp" />
+
 </LinearLayout>

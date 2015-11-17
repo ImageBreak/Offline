@@ -34,14 +34,13 @@ import com.itau.jingdong.ui.CategoryActivity;
  */
 @SuppressLint("ValidFragment")
 public class AllBaby_F extends Fragment implements IBtnCallListener, onCheckedChanged, OnClickListener {
-	//IBtnCallListener btnCallListener;
-	private Intent mIntent=null;
-	private TextView tv_goShop, tv_cart_Allprice, tv_cart_buy_Ordel;
+
+	private TextView  tv_cart_Allprice, tv_cart_buy_Ordel;
 	private LinearLayout ll_cart;
 	private ListView listView_cart;
 	private CheckBox cb_cart_all;
 	private Adapter_ListView_cart adapter;
-	private String str_del = "结算(0)";
+	private String str_del = "结算";
 	private boolean[] is_choice;
 
 	public AllBaby_F(String del) {
@@ -132,7 +131,6 @@ public class AllBaby_F extends Fragment implements IBtnCallListener, onCheckedCh
 		
 		
 		tv_cart_buy_Ordel.setOnClickListener(this);
-//		tv_goShop.setOnClickListener(this);
 	}
 
 

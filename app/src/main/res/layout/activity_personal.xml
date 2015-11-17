@@ -234,7 +234,9 @@
                         style="@style/PersonalCenterText"
                         android:text="@string/personal_order_center" />
 
-                  <LinearLayout style="@style/PersonalMainLayoutStyle" >
+                  <LinearLayout
+                      android:id="@+id/mhistory"
+                      style="@style/PersonalMainLayoutStyle" >
 
                         <RelativeLayout style="@style/PersonalTopStyle" >
 
@@ -262,9 +264,13 @@
                         style="@style/PersonalCenterText"
                         android:text="@string/personal_account_center" />
 
-                    <LinearLayout style="@style/PersonalMainLayoutStyle" >
+                    <LinearLayout
+                        android:id="@+id/mfavourite"
+                        style="@style/PersonalMainLayoutStyle" >
 
-                        <RelativeLayout style="@style/PersonalTopStyle" >
+                        <RelativeLayout
+
+                            style="@style/PersonalTopStyle" >
 
                             <ImageView
                                 android:id="@+id/personal_icon_04"
@@ -289,7 +295,9 @@
 
                     
                  <!--  *********************  用户中心 *************************** -->
-                    <LinearLayout style="@style/PersonalMainLayoutStyle" >
+                    <LinearLayout
+                        android:id="@+id/mstore"
+                        style="@style/PersonalMainLayoutStyle" >
 
                         <RelativeLayout
                             style="@style/PersonalTopStyle"

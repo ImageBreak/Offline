@@ -84,11 +84,12 @@ public class BabyActivity extends FragmentActivity implements OnItemClickListene
 		iv_baby_collection=(ImageView) findViewById(R.id.iv_baby_collection);
 		iv_baby_collection.setOnClickListener(this);
 		all_choice_layout = (LinearLayout) findViewById(R.id.all_choice_layout);
+		/**以下为商品评论相关，目前只是默认填充*/
 		listView = (ListView) findViewById(R.id.listView_Detail);
 		listView.setFocusable(false);
 		listView.setSelector(new ColorDrawable(Color.TRANSPARENT));
 		listView.setAdapter(new Adapter_ListView_detail(this));
-		listView.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
+	/*	listView.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
@@ -97,7 +98,7 @@ public class BabyActivity extends FragmentActivity implements OnItemClickListene
 				Intent intent = new Intent(Intent.ACTION_VIEW, uri);
 				startActivity(intent);
 			}
-		});
+		});*/
 		initViewPager();
 		
 		if (isCollection) {
@@ -225,8 +226,6 @@ public class BabyActivity extends FragmentActivity implements OnItemClickListene
 			//如果之前是点击的立即购买，那么就跳转到立即购物界面(后续修改！！！)
 			/*Intent intent = new Intent(BabyActivity.this, BuynowActivity.class);
 			startActivity(intent);*/
-		}else {
-			Toast.makeText(this, "添加到购物车成功", Toast.LENGTH_SHORT).show();
 		}
 	}
 

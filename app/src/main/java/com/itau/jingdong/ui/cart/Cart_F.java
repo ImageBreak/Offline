@@ -1,6 +1,7 @@
 package com.itau.jingdong.ui.cart;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -36,12 +37,28 @@ public class Cart_F extends FragmentActivity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.cart_f);
 
-		initView();
 		return ;
 	}
 
-	public void onResume(){
+	/**实现数据的刷新*/
+	@Override
+	protected void onResume() {
+		super.onResume();
+		getSaveData();
+		initView();
+	}
 
+	/** 得到保存的购物车数据 */
+	private void getSaveData() {
+		HashMap<String, Object> hashMap = new HashMap<String, Object>();
+		SharedPreferences sp = getSharedPreferences("SAVE_CART", Context.MODE_PRIVATE);
+		int size = sp.getInt("ArrayCart_size", 0);
+		for (int i = 0; i < size; i++) {
+			hashMap.put("type", sp.getString("ArrayCart_type_" + i, ""));
+			hashMap.put("color", sp.getString("ArrayCart_color_" + i, ""));
+			hashMap.put("num", sp.getString("ArrayCart_num_" + i, ""));
+			Data.arrayList_cart.add(hashMap);
+		}
 	}
 
 	private void initView() {

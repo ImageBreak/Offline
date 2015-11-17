@@ -10,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:cacheColorHint="#00000000" />
-
     <LinearLayout
         android:id="@+id/id_title"
         android:layout_width="fill_parent"
@@ -21,7 +20,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/clothingcity"
+            android:text="购买记录"
             android:textColor="#ffffff"
             android:textSize="18.0dip" />
     </LinearLayout>

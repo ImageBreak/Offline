@@ -25,7 +25,6 @@ import com.itau.jingdong.R;
 import com.itau.jingdong.adapter.Adapter_ListView_ware;
 import com.itau.jingdong.xListview.XListView;
 import com.itau.jingdong.xListview.XListView.IXListViewListener;
-//import com.zdp.aseo.content.AseoZdpAseo;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

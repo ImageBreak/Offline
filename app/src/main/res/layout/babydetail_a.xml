@@ -34,6 +34,7 @@
                 android:orientation="horizontal" >
 
                 <TextView
+                    android:id="@+id/iv_baby_des"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -58,6 +59,7 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/iv_baby_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -77,13 +79,13 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="" />
+                    android:text="良心商品" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="月销  1234笔" />
+                    android:text="小本生意" />
 
                 <TextView
                     android:layout_width="0dp"

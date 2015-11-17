@@ -7,24 +7,19 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
 import android.widget.TabHost;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
 import com.itau.jingdong.AppManager;
-import com.itau.jingdong.Data.Data;
 import com.itau.jingdong.R;
-import com.itau.jingdong.home.WareActivity;
-import com.itau.jingdong.ui.cart.AllBaby_F;
+
 import com.itau.jingdong.ui.cart.Cart_F;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
-import java.util.HashMap;
 
 public class HomeActivity extends TabActivity {
 
@@ -45,23 +40,11 @@ public class HomeActivity extends TabActivity {
 		super.onCreate(savedInstanceState);
 		AppManager.getInstance().addActivity(this);
 		setContentView(R.layout.activity_home);
-		getSaveData();
 
 		findViewById();
 		initView();
 	}
-	/** 得到保存的购物车数据 */
-	private void getSaveData() {
-		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		SharedPreferences sp = getSharedPreferences("SAVE_CART", Context.MODE_PRIVATE);
-		int size = sp.getInt("ArrayCart_size", 0);
-		for (int i = 0; i < size; i++) {
-			hashMap.put("type", sp.getString("ArrayCart_type_" + i, ""));
-			hashMap.put("color", sp.getString("ArrayCart_color_" + i, ""));
-			hashMap.put("num", sp.getString("ArrayCart_num_" + i, ""));
-			Data.arrayList_cart.add(hashMap);
-		}
-	}
+
 	private void findViewById() {
 		mTabButtonGroup = (RadioGroup) findViewById(R.id.home_radio_button_group);
 	}

@@ -65,7 +65,6 @@ private ArrayList<HashMap<String, Object>> arrayList;
 	public class HolderView {
 		
 		private ImageView iv_pic;
-		private TextView tv_sale_num;
 		private TextView tv_name;
 		private TextView tv_price;
 		

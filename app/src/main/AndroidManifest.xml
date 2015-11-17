@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.itau.jingdong"
     android:installLocation="auto"
@@ -31,8 +32,11 @@
         android:smallScreens="true"
         android:xlargeScreens="true" />
 
+    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
-        android:name="com.itau.jingdong.BaseApplication"
+        android:name=".BaseApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -53,19 +57,11 @@
             android:launchMode="singleTop"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".ui.MainActivity"
-            android:launchMode="singleTop"
-            android:theme="@style/AppTheme" />
-        <activity
             android:name=".ui.IndexActivity"
             android:launchMode="singleTop"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.CategoryActivity"
-            android:launchMode="singleTop"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".ui.CartActivity"
             android:launchMode="singleTop"
             android:theme="@style/AppTheme" />
         <activity
@@ -121,25 +117,36 @@
             android:launchMode="singleTop"
             android:theme="@style/AppTheme" >
         </activity>
-        <activity android:name=".zxing.CaptureResultActivity"
+        <activity
+            android:name=".zxing.CaptureResultActivity"
             android:launchMode="singleTop"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme" >
         </activity>
-        <activity android:name=".home.WareActivity"
+        <activity
+            android:name=".home.WareActivity"
             android:launchMode="singleTop"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme" >
         </activity>
-        <activity android:name=".home.BabyActivity"
+        <activity
+            android:name=".home.BabyActivity"
             android:launchMode="singleTop"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme" >
         </activity>
-        <activity android:name=".home.ShowBigPictrue"
+        <activity
+            android:name=".home.ShowBigPictrue"
             android:launchMode="singleTop"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme" >
         </activity>
-        <activity android:name=".ui.cart.Cart_F"
+        <activity
+            android:name=".ui.cart.Cart_F"
             android:launchMode="singleTop"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity android:name=".ui.PersonalFavouriteActivity" >
+        </activity>
+        <activity android:name=".ui.PersonalHistory" >
+        </activity>
+        <activity android:name=".ui.PersonalStore" >
         </activity>
     </application>
 

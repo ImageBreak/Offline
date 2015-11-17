@@ -14,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.itau.jingdong.R;
-import com.itau.jingdong.home.WareActivity;
 import com.itau.jingdong.ui.base.BaseActivity;
 
 
@@ -22,6 +21,7 @@ public class CategoryActivity extends BaseActivity {
 
 	private ListView catergory_listview;
 	private LayoutInflater layoutInflater;
+	private Intent mIntent;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +44,28 @@ public class CategoryActivity extends BaseActivity {
 			public void onItemClick(AdapterView<?> adapterview, View view, int parent,
 					long id) {
 				//Toast.makeText(CategoryActivity.this, "你点击了第"+id+"项",1 ).show();
-				Intent mIntent = new Intent(CategoryActivity.this, WareActivity.class);
-				startActivity(mIntent);
+				//Intent mIntent = new Intent(CategoryActivity.this, WareActivity.class);
+				//startActivity(mIntent);
+				switch ((int)id){
+					case 0:
+						mIntent = new Intent(CategoryActivity.this, IndexDaily.class);
+						startActivity(mIntent);
+						break;
+					case 1:
+						mIntent = new Intent(CategoryActivity.this, IndexEbookActivity.class);
+						startActivity(mIntent);
+						break;
+					case 2:
+						mIntent = new Intent(CategoryActivity.this, IndexClothingActivity.class);
+						startActivity(mIntent);
+						break;
+					case 3:
+						mIntent = new Intent(CategoryActivity.this, IndexDigtalActivity.class);
+						startActivity(mIntent);
+						break;
+					default:
+						break;
+				}
 			}
 		});
 	}
@@ -102,15 +122,13 @@ public class CategoryActivity extends BaseActivity {
 		}
 	}
 	// 适配显示的图片数组
-				private Integer[] mImageIds = {R.drawable.catergory_appliance,R.drawable.catergory_book,R.drawable.catergory_cloth,R.drawable.catergory_deskbook,
-						R.drawable.catergory_digtcamer,R.drawable.catergory_furnitrue,R.drawable.catergory_mobile,R.drawable.catergory_skincare
+				private Integer[] mImageIds = {R.drawable.catergory_appliance,R.drawable.catergory_book,R.drawable.catergory_deskbook,
+						R.drawable.catergory_digtcamer
 						 };
 				//给照片添加文字显示(Title)
-				private String[] mTitleValues = { "家电", "图书", "衣服", "笔记本", "数码",
-						"家具", "手机", "护肤" };
+				private String[] mTitleValues = { "家电", "图书", "衣服", "数码"};
 				
-				private String[] mContentValues={"家电/生活电器/厨房电器", "电子书/图书/小说","男装/女装/童装", "笔记本/笔记本配件/产品外设", "摄影摄像/数码配件", 
-						"家具/灯具/生活用品", "手机通讯/运营商/手机配件", "面部护理/口腔护理/..."};
+				private String[] mContentValues={"家电/生活电器/厨房电器", "电子书/图书/小说","男装/女装/童装", "摄影摄像/数码配件",};
 			
 
 		 public static class ViewHolder {
