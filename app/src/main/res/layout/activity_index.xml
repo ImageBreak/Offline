@@ -74,6 +74,7 @@
                 android:orientation="horizontal" />
 
             <RelativeLayout
+                android:id="@+id/miaosha"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/home_panicbuying_background" >
