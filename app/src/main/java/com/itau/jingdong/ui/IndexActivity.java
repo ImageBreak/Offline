@@ -1,10 +1,12 @@
 package com.itau.jingdong.ui;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Intent;
 import android.graphics.Paint;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -26,6 +28,7 @@ import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.itau.jingdong.R;
 import com.itau.jingdong.adapter.IndexGalleryAdapter;
@@ -44,16 +47,10 @@ public class IndexActivity extends BaseActivity implements OnClickListener,
 		onSearchBarItemClickListener {
 	public static final String TAG = IndexActivity.class.getSimpleName();
 
-	private ImageView mMiaoShaImage = null;
-	private TextView mIndexHour = null;
-	private TextView mIndexMin = null;
-	private TextView mIndexSeconds = null;
-	private TextView mIndexPrice = null;
-	private TextView mIndexRawPrice = null;
-
 	//=============中部导航栏模块=====
 	private ImageButton shake;
 	private Intent mIntent;
+	private Uri uri;
 	
 	// ============== 广告切换 ===================
 	private JazzyViewPager mViewPager = null;
@@ -84,6 +81,7 @@ public class IndexActivity extends BaseActivity implements OnClickListener,
 	private HomeSearchBarPopupWindow mBarPopupWindow = null;
 	private EditText mSearchBox = null;
 	private ImageButton mCamerButton = null;
+	private ImageButton tuijian,phoneFee,tuangou,caipiao,huoche,history,favourite;
 	private LinearLayout mTopLayout = null;
 
 	@Override
@@ -91,6 +89,7 @@ public class IndexActivity extends BaseActivity implements OnClickListener,
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_index);
+
 		mHandler = new Handler(getMainLooper()) {
 
 			@Override
@@ -104,29 +103,20 @@ public class IndexActivity extends BaseActivity implements OnClickListener,
 						index = -1;
 					}
 					mViewPager.setCurrentItem(index + 1);
-					mHandler.sendEmptyMessageDelayed(MSG_CHANGE_PHOTO,
-							PHOTO_CHANGE_TIME);
+					mHandler.sendEmptyMessageDelayed(MSG_CHANGE_PHOTO, PHOTO_CHANGE_TIME);
 				}
 			}
-
 		};
-
 		initData();
-
 		findViewById();
 		initView();
+
 	}
 
 	@Override
 	protected void findViewById() {
 		// TODO Auto-generated method stub
-		mIndexHour = (TextView) findViewById(R.id.index_miaosha_hour);
-		mIndexMin = (TextView) findViewById(R.id.index_miaosha_min);
-		mIndexSeconds = (TextView) findViewById(R.id.index_miaosha_seconds);
-		mIndexPrice = (TextView) findViewById(R.id.index_miaosha_price);
-		mIndexRawPrice = (TextView) findViewById(R.id.index_miaosha_raw_price);
 
-		mMiaoShaImage = (ImageView) findViewById(R.id.index_miaosha_image);
 		mViewPager = (JazzyViewPager) findViewById(R.id.index_product_images_container);
 		mIndicator = (LinearLayout) findViewById(R.id.index_product_images_indicator);
 
@@ -138,9 +128,22 @@ public class IndexActivity extends BaseActivity implements OnClickListener,
 		mTopLayout = (LinearLayout) findViewById(R.id.index_top_layout);
 		
 		shake=(ImageButton)findViewById(R.id.index_shake);
-		
+		tuijian=(ImageButton)findViewById(R.id.index_promotion_btn);
+		phoneFee=(ImageButton)findViewById(R.id.index_recharge_btn);
+		tuangou=(ImageButton)findViewById(R.id.index_groupbuy_btn);
+		caipiao=(ImageButton)findViewById(R.id.index_lottery_btn);
+		huoche=(ImageButton)findViewById(R.id.index_order_btn);
+		history=(ImageButton)findViewById(R.id.index_history_btn);
+		favourite=(ImageButton)findViewById(R.id.index_collect_btn);
 		//添加事件
 		shake.setOnClickListener(indexClickListener);
+		tuijian.setOnClickListener(indexClickListener);
+		phoneFee.setOnClickListener(indexClickListener);
+		tuangou.setOnClickListener(indexClickListener);
+		caipiao.setOnClickListener(indexClickListener);
+		huoche.setOnClickListener(indexClickListener);
+		history.setOnClickListener(indexClickListener);
+		favourite.setOnClickListener(indexClickListener);
 	}
 
 	
@@ -149,13 +152,51 @@ public class IndexActivity extends BaseActivity implements OnClickListener,
 		@Override
 		public void onClick(View v) {
 			switch (v.getId()) {
-			case R.id.index_shake:
-				mIntent=new Intent(IndexActivity.this, IndexShakeActivity.class);
-				startActivity(mIntent);
-				break;
+				case R.id.index_promotion_btn:
+					Toast.makeText(IndexActivity.this, "暂未开发233", Toast.LENGTH_SHORT).show();
+					break;
 
-			default:
-				break;
+				case R.id.index_recharge_btn:
+					uri=Uri.parse("https://h5.m.taobao.com/app/cz/cost.html");
+					mIntent=new Intent(Intent.ACTION_VIEW, uri);
+					startActivity(mIntent);
+					break;
+
+				case R.id.index_groupbuy_btn:
+					uri=Uri.parse("http://i.meituan.com");
+					mIntent=new Intent(Intent.ACTION_VIEW, uri);
+					startActivity(mIntent);
+					break;
+
+				case R.id.index_lottery_btn:
+					uri=Uri.parse("https://caipiao.taobao.com");
+					mIntent=new Intent(Intent.ACTION_VIEW, uri);
+					startActivity(mIntent);
+					break;
+
+				case R.id.index_order_btn:
+					uri=Uri.parse("https://h5.m.taobao.com/app/triphome/pages/home/index.html");
+					mIntent=new Intent(Intent.ACTION_VIEW, uri);
+					startActivity(mIntent);
+					break;
+
+				case R.id.index_history_btn:
+					mIntent=new Intent(IndexActivity.this, PersonalHistory.class);
+					startActivity(mIntent);
+					break;
+
+				case R.id.index_shake:
+					mIntent=new Intent(IndexActivity.this, IndexShakeActivity.class);
+					startActivity(mIntent);
+					break;
+
+				case R.id.index_collect_btn:
+					mIntent=new Intent(IndexActivity.this, PersonalFavouriteActivity.class);
+					startActivity(mIntent);
+					break;
+
+				default:
+					break;
 			}
 			
 		}
@@ -164,22 +205,10 @@ public class IndexActivity extends BaseActivity implements OnClickListener,
 	@Override
 	protected void initView() {
 
-		// TODO Auto-generated method stub
-		ImageLoader.getInstance().displayImage(
-				"drawable://" + R.drawable.miaosha, mMiaoShaImage);
-
-		mIndexHour.setText("00");
-		mIndexMin.setText("53");
-		mIndexSeconds.setText("49");
-		mIndexPrice.setText("￥269.99");
-		mIndexRawPrice.setText("￥459.99");
-		mIndexRawPrice.getPaint().setFlags(
-				Paint.STRIKE_THRU_TEXT_FLAG | Paint.ANTI_ALIAS_FLAG);
-
 		// ======= 初始化ViewPager ========
 		mIndicators = new ImageView[mImageUrls.size()];
 		if (mImageUrls.size() <= 1) {
-			mIndicator.setVisibility(View.GONE);
+			mIndicator.setVisibility(View.GONE);//设置控件隐藏
 		}
 
 		for (int i = 0; i < mIndicators.length; i++) {
@@ -201,17 +230,18 @@ public class IndexActivity extends BaseActivity implements OnClickListener,
 
 			mIndicator.addView(imageView);
 		}
-
 		mImageViews = new ImageView[mImageUrls.size()];
-
 		for (int i = 0; i < mImageViews.length; i++) {
 			ImageView imageView = new ImageView(this);
 			imageView.setScaleType(ScaleType.CENTER_CROP);
 			mImageViews[i] = imageView;
 		}
-		mViewPager.setTransitionEffect(TransitionEffect.CubeOut);
+		//以上为滑动广告指示的代码
+
+
+		mViewPager.setTransitionEffect(TransitionEffect.Tablet);
 		mViewPager.setCurrentItem(0);
-		mHandler.sendEmptyMessageDelayed(MSG_CHANGE_PHOTO, PHOTO_CHANGE_TIME);
+		mHandler.sendEmptyMessageDelayed(MSG_CHANGE_PHOTO, PHOTO_CHANGE_TIME);//向主线程发送消息，完成图片切换
 
 		mViewPager.setAdapter(new MyAdapter());
 		mViewPager.setOnPageChangeListener(new MyPageChangeListener());
@@ -403,8 +433,6 @@ public class IndexActivity extends BaseActivity implements OnClickListener,
 	/**
 	 * 当ViewPager中页面的状态发生改变时调用
 	 * 
-	 * @author Administrator
-	 * 
 	 */
 	private class MyPageChangeListener implements OnPageChangeListener {
 
@@ -427,8 +455,6 @@ public class IndexActivity extends BaseActivity implements OnClickListener,
 
 	/**
 	 * 设置选中的tip的背景
-	 * 
-	 * @param selectItemsIndex
 	 */
 	private void setImageBackground(int selectItemsIndex) {
 		for (int i = 0; i < mIndicators.length; i++) {
@@ -464,17 +490,10 @@ public class IndexActivity extends BaseActivity implements OnClickListener,
 	@Override
 	public void onBarCodeButtonClick() {
 		// TODO Auto-generated method stub
-//		CommonTools.showShortToast(this, "条码购");
 		mIntent=new Intent(IndexActivity.this, CaptureActivity.class);
 		startActivity(mIntent);
 	}
 
-	/*@Override
-	public void onCameraButtonClick() {
-		// TODO Auto-generated method stub
-		CommonTools.showShortToast(this, "拍照购");
-	}
-*/
 	@Override
 	public void onColorButtonClick() {
 		// TODO Auto-generated method stub

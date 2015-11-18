@@ -73,166 +73,6 @@
                 android:background="@color/white"
                 android:orientation="horizontal" />
 
-            <RelativeLayout
-                android:id="@+id/miaosha"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/home_panicbuying_background" >
-
-                <FrameLayout
-                    android:id="@+id/index_miaosha_image_layout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_margin="5dp" >
-
-                    <ImageView
-                        android:id="@+id/index_miaosha_image"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp" />
-
-                    <ImageView
-                        android:id="@+id/index_miaosha_discount_icon"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="top|left"
-                        android:background="@drawable/app_limit_buy_sale" />
-                </FrameLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/index_miaosha_image_layout"
-                    android:orientation="vertical" >
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal" >
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/index_limit"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/small_text_size"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/index_miaosha_hour"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/red"
-                            android:textSize="@dimen/small_text_size"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/index_hour"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/small_text_size"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/index_miaosha_min"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/red"
-                            android:textSize="@dimen/small_text_size"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/index_min"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/small_text_size"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/index_miaosha_seconds"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/red"
-                            android:textSize="@dimen/small_text_size"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/index_seconds"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/small_text_size"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:orientation="horizontal" >
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/index_price"
-                            android:textColor="@color/darkgray"
-                            android:textSize="@dimen/micro_text_size" />
-
-                        <TextView
-                            android:id="@+id/index_miaosha_price"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:textColor="@color/red"
-                            android:textSize="@dimen/small_text_size"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:orientation="horizontal" >
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/index_raw_price"
-                            android:textColor="@color/darkgray"
-                            android:textSize="@dimen/micro_text_size" />
-
-                        <TextView
-                            android:id="@+id/index_miaosha_raw_price"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:textColor="@color/darkgray"
-                            android:textSize="@dimen/micro_text_size" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <ImageView
-                    android:id="@+id/index_list_arrow"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_margin="5dp"
-                    android:src="@drawable/android_list_idex" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toLeftOf="@id/index_list_arrow"
-                    android:text="@string/index_slogan"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/medium_text_size"
-                    android:textStyle="bold" />
-            </RelativeLayout>
 
             <ImageView
                 android:layout_width="match_parent"
@@ -367,7 +207,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/index_order"
+                            android:text="火车票"
                             android:textColor="@color/black"
                             android:textSize="@dimen/micro_text_size" />
                     </LinearLayout>
@@ -389,7 +229,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/index_history"
+                            android:text="成交历史"
                             android:textColor="@color/black"
                             android:textSize="@dimen/micro_text_size" />
                     </LinearLayout>
@@ -441,18 +281,6 @@
                             android:textSize="@dimen/micro_text_size" />
                     </LinearLayout>
                 </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="15dp"
-                    android:layout_marginTop="15dp"
-                    android:drawableLeft="@drawable/home_slide_promotion"
-                    android:drawablePadding="10dp"
-                    android:text="@string/index_notify_info"
-                    android:textColor="@color/gray"
-                    android:textSize="@dimen/small_text_size" />
 
                 <ImageView
                     android:layout_width="match_parent"
