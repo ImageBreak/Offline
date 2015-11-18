@@ -13,8 +13,8 @@ import com.itau.jingdong.R;
 
 public class PersonalStore extends Activity implements OnClickListener {
     private Button upload,confirm;
-    private EditText Sname,Sprice;
-    private String S_name,S_price;
+    private EditText Sname,Sprice,Samount;
+    private String G_name,G_price,G_amount;
     private Intent mIntent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +28,14 @@ public class PersonalStore extends Activity implements OnClickListener {
         confirm = (Button)findViewById(R.id.confirm);
         Sname = (EditText)findViewById(R.id.S_name);
         Sprice = (EditText)findViewById(R.id.S_price);
+        Samount = (EditText)findViewById(R.id.S_amount);
 
         upload.setOnClickListener(this);
         confirm.setOnClickListener(this);
         /**获得输入的文本*/
-        S_name = Sname.getText().toString();
-        S_price = Sprice.getText().toString();
+        G_name = Sname.getText().toString();
+        G_price = Sprice.getText().toString();
+        G_amount = Samount.getText().toString();
     }
 
     @Override

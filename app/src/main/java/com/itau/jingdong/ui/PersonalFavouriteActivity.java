@@ -40,7 +40,7 @@ public class PersonalFavouriteActivity extends Activity implements  IXListViewLi
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_index_daily);
+        setContentView(R.layout.activity_personal_favourite);
         initView();
         //请求网络数据
         new WareTask().execute();

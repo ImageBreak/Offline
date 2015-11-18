@@ -30,6 +30,7 @@ import com.itau.jingdong.MyView.BabyPopWindow.OnItemClickListener;
 import com.itau.jingdong.R;
 import com.itau.jingdong.adapter.Adapter_ListView_detail;
 import com.itau.jingdong.ScaleView.HackyViewPager;
+import com.itau.jingdong.ui.BabyCommentActivity;
 //import com.zdp.aseo.content.AseoZdpAseo;
 
 import java.util.ArrayList;
@@ -51,8 +52,6 @@ public class BabyActivity extends FragmentActivity implements OnItemClickListene
 	private BabyPopWindow popWindow;
 	/** 用于设置背景暗淡 */
 	private LinearLayout all_choice_layout = null;
-	/**判断是否点击的立即购买按钮*/
-	boolean isClickBuy = false;
 	/**是否添加收藏*/
 	private static boolean isCollection=false; 
 	/**ViewPager当前显示页的下标*/
@@ -77,10 +76,9 @@ public class BabyActivity extends FragmentActivity implements OnItemClickListene
 		if (nfcAdapter == null) {
 			Toast.makeText(this, "该设备不支持NFC", Toast.LENGTH_SHORT).show();
 		}
-		//AseoZdpAseo.initType(this, AseoZdpAseo.INSERT_TYPE);
-		((ImageView) findViewById(R.id.iv_back)).setOnClickListener(this);
-		((ImageView) findViewById(R.id.put_in)).setOnClickListener(this);
-		((ImageView) findViewById(R.id.buy_now)).setOnClickListener(this);
+		(findViewById(R.id.iv_back)).setOnClickListener(this);
+		(findViewById(R.id.put_in)).setOnClickListener(this);
+		(findViewById(R.id.buy_now)).setOnClickListener(this);
 		iv_baby_collection=(ImageView) findViewById(R.id.iv_baby_collection);
 		iv_baby_collection.setOnClickListener(this);
 		all_choice_layout = (LinearLayout) findViewById(R.id.all_choice_layout);
@@ -129,15 +127,13 @@ public class BabyActivity extends FragmentActivity implements OnItemClickListene
 			break;
 		case R.id.put_in:
 			//添加购物车
-			isClickBuy = false;
 			setBackgroundBlack(all_choice_layout, 0);
 			popWindow.showAsDropDown(view);
 			break;
 		case R.id.buy_now:
-			//立即购买
-			isClickBuy = true;
-			setBackgroundBlack(all_choice_layout, 0);
-			popWindow.showAsDropDown(view);
+			//添加评论
+			Intent intent = new Intent(BabyActivity.this, BabyCommentActivity.class);
+			startActivity(intent);
 			break;
 		}
 	}
@@ -200,7 +196,7 @@ public class BabyActivity extends FragmentActivity implements OnItemClickListene
 
 		@Override
 		public boolean isViewFromObject(View arg0, Object arg1) {
-			return arg0 == (View) arg1;
+			return arg0 ==  arg1;
 		}
 
 		@Override
@@ -222,11 +218,6 @@ public class BabyActivity extends FragmentActivity implements OnItemClickListene
 	public void onClickOKPop() {
 		setBackgroundBlack(all_choice_layout, 1);
 
-		if (isClickBuy) {
-			//如果之前是点击的立即购买，那么就跳转到立即购物界面(后续修改！！！)
-			/*Intent intent = new Intent(BabyActivity.this, BuynowActivity.class);
-			startActivity(intent);*/
-		}
 	}
 
 	/** 控制背景变暗 0变暗 1变亮 */

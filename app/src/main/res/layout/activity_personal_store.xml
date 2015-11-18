@@ -41,8 +41,6 @@
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
             android:layout_marginLeft="20dp"
-            android:inputType="number"
-            android:background="@drawable/category_selection_gridview_bg"
             android:layout_gravity="center_vertical"
             />
 
@@ -69,8 +67,32 @@
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
             android:layout_marginLeft="35dp"
+            android:layout_gravity="center_vertical"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="库存："
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/S_amount"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_marginLeft="35dp"
             android:inputType="number"
-            android:background="@drawable/category_selection_gridview_bg"
             android:layout_gravity="center_vertical"
             />
 

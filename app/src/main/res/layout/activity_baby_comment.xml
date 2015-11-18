@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#f0f0f0"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/id_title"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:background="@drawable/android_title_bg" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dip"
+            android:text="添加我的评价"
+            android:textColor="#ffffff"
+            android:textSize="15.0dip" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="35dp"
+        >
+
+        <EditText
+            android:id="@+id/G_text"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:lines="7"
+            android:gravity="top"
+            android:layout_gravity="center_vertical"
+            android:hint="请输入你的评价"
+            />
+
+    </LinearLayout>
+
+
+
+
+    <Button
+        android:id="@+id/confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/edit_product_num_cancle_normal"
+        android:gravity="center"
+        android:text="确定"
+        android:textSize="16sp" />
+
+</LinearLayout>
