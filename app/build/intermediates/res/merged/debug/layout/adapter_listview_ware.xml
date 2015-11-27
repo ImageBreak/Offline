@@ -31,21 +31,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="￥49.0元 包邮"
+            android:text="￥49.0元"
             android:textColor="@color/tv_Red"
             />
-        <TextView 
-            android:id="@+id/sale_num"
-            android:layout_marginTop="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="1.8万人付款     广州"
-            android:textSize="13sp"
-            />
-        
-        
-        
-        
+
     </LinearLayout>
 
 </LinearLayout><!-- From: file:/D:/Android%20studio%20pro/Mystore/app/src/main/res/layout/adapter_listview_ware.xml -->

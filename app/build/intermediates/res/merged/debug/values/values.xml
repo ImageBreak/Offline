@@ -208,6 +208,10 @@
     <declare-styleable name="Switch_Style"><attr format="reference" name="switchStyle"/></declare-styleable>
     <declare-styleable name="TextAppearance"><attr format="reference|color" name="textColor"/><attr format="dimension" name="textSize"/><attr name="textStyle"><flag name="normal" value="0"/><flag name="bold" value="1"/><flag name="italic" value="2"/></attr><attr name="typeface"><enum name="normal" value="0"/><enum name="sans" value="1"/><enum name="serif" value="2"/><enum name="monospace" value="3"/></attr><attr format="reference|color" name="textColorHighlight"/><attr format="reference|color" name="textColorHint"/><attr format="reference|color" name="textColorLink"/><attr format="boolean" name="textAllCaps"/></declare-styleable>
     <declare-styleable name="ViewPagerIndicator"><attr format="reference" name="vpiCirclePageIndicatorStyle"/></declare-styleable>
+    <!-- From: file:/D:/Android%20studio%20pro/Mystore/app/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
     <!-- From: file:/D:/Android%20studio%20pro/Mystore/app/src/main/res/values/defaults.xml -->
     <eat-comment/>
     <dimen name="default_circle_indicator_radius">3dp</dimen>
@@ -255,7 +259,8 @@
     <string name="category">全部分类</string>
     <string name="clothingcity">服装城</string>
     <string name="color_buy">二维码</string>
-    <string name="daily">百货集</string>
+    <string name="daily">家电集</string>
+    <string name="dialog_read_from_dir">文件浏览器</string>
     <string name="digital">数码家电馆</string>
     <string name="ebook">好书汇</string>
     <string name="find_password">找回密码</string>
@@ -271,7 +276,7 @@
     <string name="index_notify_info">向左滑，更多优惠等你抢</string>
     <string name="index_order">订单状态</string>
     <string name="index_price">秒杀价:</string>
-    <string name="index_promotion">促销卖场</string>
+    <string name="index_promotion">商品推荐</string>
     <string name="index_raw_price">原价:</string>
     <string name="index_recharge">充值</string>
     <string name="index_search_edit_hint">搜索商品</string>
@@ -284,7 +289,7 @@
     <string name="inputpassword">请输入密码</string>
     <string name="login">登录</string>
     <string name="login_btn">登   录</string>
-    <string name="login_loading">正在登錄，請稍候。。</string>
+    <string name="login_loading">正在登陆，请稍后。。</string>
     <string name="loginacount">账号名：</string>
     <string name="loginpassword">密   码：</string>
     <string name="menu_about">关于</string>
@@ -324,7 +329,7 @@
     <string name="personal_welcome">欢迎来到OS</string>
     <string name="register">快速注册</string>
     <string name="register_in_normal">普通用户注册</string>
-    <string name="register_normal_email">邮箱：</string>
+    <string name="register_normal_email">支付宝：</string>
     <string name="register_normal_email_hint">  请输入邮箱帐号</string>
     <string name="register_normal_password">密码：</string>
     <string name="register_normal_password_hint">  请输入密码</string>
@@ -346,6 +351,7 @@
     <string name="switch_on"/>
     <!-- From: file:/D:/Android%20studio%20pro/Mystore/app/src/main/res/values/strings.xml -->
     <eat-comment/>
+    <string name="tip">(只支持jpg和png格式的图片)</string>
     <string name="usecooperationaccount">用合作网站帐户登录</string>
     <string name="xlistview_footer_hint_normal">查看更多</string>
     <string name="xlistview_footer_hint_ready">松开载入更多</string>

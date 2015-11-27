@@ -3,6 +3,7 @@ package com.itau.jingdong.ui;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,10 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.itau.jingdong.Operaton;
+import com.itau.jingdong.bean.Good;
 import com.itau.jingdong.home.BabyActivity;
 import com.itau.jingdong.http.CU_JSONResolve;
 import com.itau.jingdong.http.GetHttp;
@@ -19,22 +24,31 @@ import com.itau.jingdong.adapter.Adapter_ListView_ware;
 import com.itau.jingdong.xListview.XListView;
 import com.itau.jingdong.xListview.XListView.IXListViewListener;
 
+import org.json.JSONObject;
+
+import java.lang.reflect.TypeVariable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
 public class PersonalFavouriteActivity extends Activity implements  IXListViewListener {
 
+    private String jsonString=null;
+    public String temp;
+    public List<Good> good = new ArrayList<Good>();
     //显示所有商品的列表
     private XListView listView;
 
-    private int pageIndex = 0;
+    //private int pageIndex = 0;
     /**存储网络返回的数据*/
-    private HashMap<String, Object> hashMap;
+   // private HashMap<String, Object> hashMap;
     /**存储网络返回的数据中的data字段*/
-    private ArrayList<HashMap<String, Object>> arrayList = new ArrayList<HashMap<String, Object>>();
+   // private ArrayList<HashMap<String, Object>> arrayList = new ArrayList<HashMap<String, Object>>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
@@ -44,6 +58,7 @@ public class PersonalFavouriteActivity extends Activity implements  IXListViewLi
         initView();
         //请求网络数据
         new WareTask().execute();
+
     }
 
     protected void initView() {
@@ -53,10 +68,10 @@ public class PersonalFavouriteActivity extends Activity implements  IXListViewLi
         // 设置可以进行下拉加载的功能
         listView.setPullLoadEnable(true);
         listView.setPullRefreshEnable(true);
+
     }
 
-
-    private class WareTask extends AsyncTask<Void, Void, HashMap<String, Object>> {
+    private class WareTask extends AsyncTask<Void, Void, List<Good>> {
         ProgressDialog dialog=null;
         @Override
         protected void onPreExecute() {
@@ -67,30 +82,26 @@ public class PersonalFavouriteActivity extends Activity implements  IXListViewLi
         }
 
         @Override
-        protected HashMap<String, Object> doInBackground(Void... arg0) {
-            String url = "";
-            if (pageIndex == 0) {
-                url = "http://192.168.0.111:3000/taoBaoQuery";
-            } else {
-                url = "http://192.168.0.111:3000/taoBaoQuery?pageIndex=" + pageIndex;
+        protected List<Good> doInBackground(Void... arg0) {
+            SharedPreferences sp = getSharedPreferences("info",MODE_PRIVATE);
+            String u_name = sp.getString("u_name","");
+            jsonString = "{\"u_name\":\""+u_name+"\"}";
+            System.out.println(jsonString);
+            Operaton operaton = new Operaton();
+            //将trade对象写出json形式字符串
+            temp = operaton.GetData("favoritelist.action", jsonString);
+            if(temp != null) {
+                Gson gson = new Gson();
+                good = gson.fromJson(temp, new TypeToken<List<Good>>() {}.getType());
             }
-            //请求数据，返回json
-            String json = GetHttp.RequstGetHttp(url);
-            //第一层的数组类型字段
-            String[] LIST1_field = { "data" };
-            //第二层的对象类型字段
-            String[] STR2_field = { "id", "name", "price", "pic" };
-            ArrayList<String[]> aL_STR2_field = new ArrayList<String[]>();
-            //第二层的对象类型字段放入第一层的数组类型字段中
-            aL_STR2_field.add(STR2_field);
-            //解析返回的json
-            hashMap = CU_JSONResolve.parseHashMap2(json, null, LIST1_field, aL_STR2_field);
-            return hashMap;
+            else
+                good = null;
+            return good;
         }
 
         @SuppressWarnings("unchecked")
         @Override
-        protected void onPostExecute(HashMap<String, Object> result) {
+        protected void onPostExecute(final List<Good> result) {
 
             if (dialog!=null&&dialog.isShowing()) {
                 dialog.dismiss();
@@ -98,13 +109,24 @@ public class PersonalFavouriteActivity extends Activity implements  IXListViewLi
             }
 
             //如果网络数据请求失败，那么显示默认的数据
-            if (result != null && result.get("data") != null) {
-                //得到data字段的数据
-                arrayList.addAll((Collection<? extends HashMap<String, Object>>) result.get("data"));
-                listView.setAdapter(new Adapter_ListView_ware(PersonalFavouriteActivity.this, arrayList));
+            if (result != null) {
+                listView.setAdapter(new Adapter_ListView_ware(PersonalFavouriteActivity.this, result));
                 listView.setOnItemClickListener(new OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+                        SharedPreferences sp = getSharedPreferences("info",MODE_PRIVATE);
+                        SharedPreferences.Editor ed = sp.edit();
+                        ed.remove("g_id");
+                        ed.putInt("g_id", result.get(position-1).getG_id());
+                        ed.remove("g_pic");
+                        ed.putString("g_pic", result.get(position-1).getG_pic());
+                        ed.remove("g_name");
+                        ed.putString("g_name", result.get(position-1).getG_name());
+                        ed.remove("g_price");
+                        ed.putString("g_price", result.get(position-1).getG_price());
+                        ed.remove("g_amount");
+                        ed.putInt("g_amount", result.get(position-1).getG_amount());
+                        ed.commit();
                         Intent intent = new Intent(PersonalFavouriteActivity.this, BabyActivity.class);
                         startActivity(intent);
                     }
@@ -124,26 +146,32 @@ public class PersonalFavouriteActivity extends Activity implements  IXListViewLi
             onLoad();
         }
     }
+
     /** 刷新 */
     @Override
     public void onRefresh() {
         // 刷新数据
-        pageIndex = 0;
-        arrayList.clear();
+        //pageIndex = 0;
+        good.clear();
         new WareTask().execute();
         // 停止刷新和加载
         onLoad();
     }
+
     /** 加载更多 */
+
     @Override
     public void onLoadMore() {
-        pageIndex += 1;
+        /*pageIndex += 1;
         if (pageIndex >= 4) {
             Toast.makeText(this, "已经最后一页了", Toast.LENGTH_SHORT).show();
             onLoad();
             return;
-        }
-        new WareTask().execute();
+        }*/
+        Toast.makeText(this, "已经最后一页了", Toast.LENGTH_SHORT).show();
+        onLoad();
+        return;
+        //new WareTask().execute();
     }
 
     /** 停止加载和刷新 */

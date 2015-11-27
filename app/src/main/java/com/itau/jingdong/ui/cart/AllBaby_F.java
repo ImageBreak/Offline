@@ -3,8 +3,12 @@ package com.itau.jingdong.ui.cart;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,12 +25,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.itau.jingdong.Data.Data;
+import com.itau.jingdong.Operaton;
+import com.itau.jingdong.bean.Good;
+import com.itau.jingdong.bean.Trade;
+import com.itau.jingdong.bean.User;
 import com.itau.jingdong.home.BabyActivity;
 import com.itau.jingdong.R;
 import com.itau.jingdong.adapter.Adapter_ListView_cart;
 import com.itau.jingdong.adapter.Adapter_ListView_cart.onCheckedChanged;
+import com.itau.jingdong.json.WriteJson;
 import com.itau.jingdong.mytools.IBtnCallListener;
 import com.itau.jingdong.ui.CategoryActivity;
+
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 购物车界面中的全部宝贝界面
@@ -40,8 +54,9 @@ public class AllBaby_F extends Fragment implements IBtnCallListener, onCheckedCh
 	private ListView listView_cart;
 	private CheckBox cb_cart_all;
 	private Adapter_ListView_cart adapter;
-	private String str_del = "结算";
+	private String str_del = "结算",jsonString = null;
 	private boolean[] is_choice;
+	public JSONObject temp;
 
 	public AllBaby_F(String del) {
 		str_del = del;
@@ -153,12 +168,11 @@ public class AllBaby_F extends Fragment implements IBtnCallListener, onCheckedCh
 		//得到点击的哪一行
 		if (isChoice) {
 			if (Data.arrayList_cart.size()!=0) {
-				//49表示商品的价格，这里偷了下懒，没有去动态获取商品价格
-				Data.Allprice_cart += Float.valueOf(Data.arrayList_cart.get(position).get("num").toString())*49;
+				Data.Allprice_cart += Float.valueOf(Data.arrayList_cart.get(position).get("num").toString())*Float.valueOf(Data.arrayList_cart.get(position).get("price").toString());
 			}
 		} else {
 			if (Data.arrayList_cart.size()!=0) {
-				Data.Allprice_cart -= Float.valueOf(Data.arrayList_cart.get(position).get("num").toString())*49;
+				Data.Allprice_cart -= Float.valueOf(Data.arrayList_cart.get(position).get("num").toString())*Float.valueOf(Data.arrayList_cart.get(position).get("price").toString());
 			}
 		}
 		// 记录列表处于选中状态的数量
@@ -188,6 +202,7 @@ public class AllBaby_F extends Fragment implements IBtnCallListener, onCheckedCh
 
 	@Override
 	public void onClick(View view) {
+
 		switch (view.getId()) {
 
 		case R.id.tv_cart_buy_or_del://点击结算/删除
@@ -203,18 +218,55 @@ public class AllBaby_F extends Fragment implements IBtnCallListener, onCheckedCh
 						}
 					}
 				}
-				
-				
 				if (Data.arrayList_cart.size()==0) {
 					ll_cart.setVisibility(View.VISIBLE);
 				}
-				
 				adapter.notifyDataSetChanged();
 				is_choice=new boolean[Data.arrayList_cart.size()];
 				System.out.println("此时的长度---->"+is_choice.length);
 			}else {
 				//执行结算操作
-				Toast.makeText(getActivity(), "暂时无法结算", Toast.LENGTH_SHORT).show();
+				if (Data.arrayList_cart.size()!=0) {
+					for (int i = is_choice_copy.length-1; i >=0; i--) {
+						if (is_choice_copy[i]) {
+							Trade trade = new Trade();
+							trade.setG_id(Integer.parseInt(Data.arrayList_cart.get(i).get("g_id").toString()));
+							trade.setU_name(Data.arrayList_cart.get(i).get("u_name").toString());
+							trade.setT_color(Data.arrayList_cart.get(i).get("color").toString());
+							trade.setT_type(Data.arrayList_cart.get(i).get("type").toString());
+							trade.setT_count(Integer.parseInt(Data.arrayList_cart.get(i).get("num").toString()));
+							WriteJson writeJson=new WriteJson();
+							jsonString= writeJson.getJsonData(trade);
+							System.out.println(jsonString);
+							new Thread(new Runnable() {
+
+								public void run() {
+									Operaton operaton = new Operaton();
+									//将trade对象写出json形式字符串
+									temp = operaton.UpData("addtrade.action", jsonString);
+									if(temp != null) {
+										Message msg = new Message();
+										try {
+											msg.obj = temp.getString("result").toString();
+										} catch (Exception e) {
+											throw new RuntimeException(e);
+										}
+										handler.sendMessage(msg);
+									}
+								}
+							}).start();
+							((CheckBox) (listView_cart.getChildAt(i)).findViewById(R.id.cb_choice)).setChecked(false);
+							Data.arrayList_cart.remove(i);
+							is_choice_copy=deleteByIndex(is_choice, i);
+						}
+					}
+				}
+				if (Data.arrayList_cart.size()==0) {
+					ll_cart.setVisibility(View.VISIBLE);
+				}
+				adapter.notifyDataSetChanged();
+				is_choice=new boolean[Data.arrayList_cart.size()];
+				System.out.println("此时的长度---->" + is_choice.length);
 			}
 			
 			break;
@@ -223,7 +275,19 @@ public class AllBaby_F extends Fragment implements IBtnCallListener, onCheckedCh
 		}
 		
 	}
-	
+	Handler handler=new Handler(){
+		@Override
+		public void handleMessage(Message msg) {
+			String result=(String) msg.obj;
+			if(result.equals("1")) {
+				Toast.makeText(getActivity(), "结算成功", Toast.LENGTH_SHORT).show();
+			}
+			else if(result.equals("0")){
+				Toast.makeText(getActivity(), "暂时无法结算", Toast.LENGTH_SHORT).show();
+			}
+			super.handleMessage(msg);
+		}
+	};
 	
 	/**删除数组中的一个元素*/
     public static boolean[] deleteByIndex(boolean[] array, int index) {

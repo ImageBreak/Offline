@@ -120,6 +120,8 @@
 <string name="register_normal_password_hint">  请输入密码</string>
 <string name="register_normal_repassword">确认密码：</string>
 <string name="register_normal_repassword_hint">  请输入确认密码</string>
+    <string name="dialog_read_from_dir">文件浏览器</string>
+    <string name="tip">(只支持jpg和png格式的图片)</string>
 
     <string name="xlistview_header_hint_normal">下拉刷新</string>
     <string name="xlistview_header_hint_ready">松开刷新数据</string>
@@ -133,7 +135,7 @@
 <string name="hotproduct">热卖商品</string>
 <string name="digital">数码家电馆</string>
 <string name="ebook">好书汇</string>
-<string name="daily">百货集</string>
+<string name="daily">家电集</string>
 
     <!-- JazzyViewPager -->
     <string-array name="jazzy_effects">

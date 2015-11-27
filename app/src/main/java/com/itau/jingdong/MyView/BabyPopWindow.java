@@ -4,8 +4,11 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Handler;
+import android.os.Message;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.itau.jingdong.Data.Data;
+import com.itau.jingdong.Operaton;
 import com.itau.jingdong.R;
 
 import java.util.HashMap;
@@ -30,7 +34,7 @@ import java.util.HashMap;
 @SuppressLint("CommitPrefEdits")
 public class BabyPopWindow implements OnDismissListener, OnClickListener {
 	private TextView pop_choice_16g,pop_choice_32g,pop_choice_16m,pop_choice_32m,pop_choice_black,pop_choice_white,pop_add,pop_reduce,pop_num,pop_ok,pop_price,pop_amount;
-	private ImageView pop_del;
+	private ImageView pop_del,pic;
 	
 	private PopupWindow popupWindow;
 	private OnItemClickListener listener;
@@ -40,8 +44,11 @@ public class BabyPopWindow implements OnDismissListener, OnClickListener {
 	private String str_color="";
 	/**保存选择的类型的数据*/
 	private String str_type="";
-	
-	
+	public String g_pic,g_price;
+	public int g_amount;
+	private Operaton operaton = new Operaton();
+	Bitmap bitmap;
+
 	public BabyPopWindow(Context context) {
 		this.context=context;
 		View view= LayoutInflater.from(context).inflate(R.layout.adapter_popwindow, null);
@@ -58,6 +65,7 @@ public class BabyPopWindow implements OnDismissListener, OnClickListener {
 		pop_price=(TextView) view.findViewById(R.id.pop_price);
 		pop_amount=(TextView) view.findViewById(R.id.pop_amount);
 		pop_del=(ImageView) view.findViewById(R.id.pop_del);
+		pic=(ImageView) view.findViewById(R.id.iv_adapter_grid_pic);
 		
 		pop_choice_16g.setOnClickListener(this);
 		pop_choice_32g.setOnClickListener(this);
@@ -70,18 +78,47 @@ public class BabyPopWindow implements OnDismissListener, OnClickListener {
 		pop_ok.setOnClickListener(this);
 		pop_del.setOnClickListener(this);
 
-		//pop_price.setText();
-		//pop_amount.setText();
+		SharedPreferences sp = context.getSharedPreferences("info", context.MODE_PRIVATE);
+		int g_id = sp.getInt("g_id",-1);
+		if(g_id != -1){
+			g_pic = sp.getString("g_pic","");
+			g_price = sp.getString("g_price","");
+			g_amount = sp.getInt("g_amount", -1);
+			pop_price.setText(g_price);
+			pop_amount.setText(String.valueOf(g_amount));
+	/*		new Thread(new Runnable() {
 
+				public void run() {
+					//将trade对象写出json形式字符串
+					bitmap = operaton.getHttpBitmap(g_pic);
+					if(bitmap != null) {
+						Message msg = new Message();
+						try {
+							msg.obj = "1";
+						} catch (Exception e) {
+							throw new RuntimeException(e);
+						}
+						handler.sendMessage(msg);
+					}
+				}
+			}).start();*/
+		}
 		popupWindow=new PopupWindow(view, LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 		//设置popwindow的动画效果
 		popupWindow.setAnimationStyle(R.style.popWindow_anim_style);
 		popupWindow.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 		popupWindow.setOnDismissListener(this);// 当popWindow消失时的监听
 	}
-	
-	
-	
+	Handler handler=new Handler(){
+		@Override
+		public void handleMessage(Message msg) {
+			String msgobj=msg.obj.toString();
+			if(msgobj.equals("1")){
+				pic.setImageBitmap(bitmap);
+			}
+			super.handleMessage(msg);
+		}
+	};
 	
 	public interface OnItemClickListener{
 		/** 设置点击确认按钮时监听接口 */
@@ -195,20 +232,31 @@ public class BabyPopWindow implements OnDismissListener, OnClickListener {
 			}else if (str_type.equals("")) {
 				Toast.makeText(context, "亲，你还没有选择类型哟~", Toast.LENGTH_SHORT).show();
 			}else {
-				Toast.makeText(context, "添加到购物车成功", Toast.LENGTH_SHORT).show();
-				HashMap<String, Object> allHashMap=new HashMap<String,Object>();
-				
-				allHashMap.put("color",str_color);
-				allHashMap.put("type",str_type);
-				allHashMap.put("num",pop_num.getText().toString());
-				allHashMap.put("id",Data.arrayList_cart_id+=1);
-				allHashMap.put("price",pop_price.getText().toString());
-				allHashMap.put("amount",pop_amount.getText().toString());//1111111
-				
-				Data.arrayList_cart.add(allHashMap);
-				setSaveData();
-				dissmiss();
-				
+				SharedPreferences sp1 = context.getSharedPreferences("info", context.MODE_PRIVATE);
+				String pic = sp1.getString("g_pic", "");
+				String name = sp1.getString("g_name", "");
+				String g_id = String.valueOf(sp1.getInt("g_id", -1));
+				String u_name = sp1.getString("u_name","");
+				if(u_name.equals(""))
+					Toast.makeText(context,"请先登录",Toast.LENGTH_SHORT).show();
+				else {
+					HashMap<String, Object> allHashMap = new HashMap<String, Object>();
+
+					allHashMap.put("color", str_color);
+					allHashMap.put("type", str_type);
+					allHashMap.put("num", pop_num.getText().toString());
+					allHashMap.put("id", Data.arrayList_cart_id += 1);
+					allHashMap.put("price", pop_price.getText().toString());
+					allHashMap.put("g_id", g_id);
+					allHashMap.put("pic", pic);
+					allHashMap.put("name", name);
+					allHashMap.put("u_name", u_name);
+
+					Data.arrayList_cart.add(allHashMap);
+					setSaveData();
+					dissmiss();
+					Toast.makeText(context, "添加到购物车成功", Toast.LENGTH_SHORT).show();
+				}
 			}
 			break;
 
@@ -220,17 +268,20 @@ public class BabyPopWindow implements OnDismissListener, OnClickListener {
 	private void setSaveData(){
 		SharedPreferences sp=context.getSharedPreferences("SAVE_CART", Context.MODE_PRIVATE);
 		Editor editor=sp.edit();
+		editor.clear();
 		editor.putInt("ArrayCart_size", Data.arrayList_cart.size());
 		for (int i = 0; i < Data.arrayList_cart.size(); i++) {
-			editor.remove("ArrayCart_type_"+i);
-			editor.remove("ArrayCart_color_"+i);
-			editor.remove("ArrayCart_num_"+i);
-			editor.putString("ArrayCart_type_"+i, Data.arrayList_cart.get(i).get("type").toString());
+
+			editor.putString("ArrayCart_type_" + i, Data.arrayList_cart.get(i).get("type").toString());
 			editor.putString("ArrayCart_color_"+i, Data.arrayList_cart.get(i).get("color").toString());
-			editor.putString("ArrayCart_num_"+i, Data.arrayList_cart.get(i).get("num").toString());
+			editor.putString("ArrayCart_num_" + i, Data.arrayList_cart.get(i).get("num").toString());
+			editor.putString("ArrayCart_name_"+i, Data.arrayList_cart.get(i).get("name").toString());
+			editor.putString("ArrayCart_price_"+i, Data.arrayList_cart.get(i).get("price").toString());
+			editor.putString("ArrayCart_pic_"+i, Data.arrayList_cart.get(i).get("pic").toString());
+			editor.putString("ArrayCart_g_id_" + i, Data.arrayList_cart.get(i).get("g_id").toString());
+			editor.putString("ArrayCart_u_name_" + i, Data.arrayList_cart.get(i).get("u_name").toString());
 			
 		}
-		
 		
 		
 	}

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
@@ -151,6 +152,8 @@ public class IndexActivity extends BaseActivity implements OnClickListener,
 		
 		@Override
 		public void onClick(View v) {
+			SharedPreferences sp = getSharedPreferences("info",MODE_PRIVATE);
+			String u_name = sp.getString("u_name","");
 			switch (v.getId()) {
 				case R.id.index_promotion_btn:
 					Toast.makeText(IndexActivity.this, "暂未开发233", Toast.LENGTH_SHORT).show();
@@ -181,8 +184,12 @@ public class IndexActivity extends BaseActivity implements OnClickListener,
 					break;
 
 				case R.id.index_history_btn:
-					mIntent=new Intent(IndexActivity.this, PersonalHistory.class);
-					startActivity(mIntent);
+					if(u_name.equals(""))
+						Toast.makeText(IndexActivity.this, "尚未登陆", Toast.LENGTH_SHORT).show();
+					else {
+						mIntent = new Intent(IndexActivity.this, PersonalHistory.class);
+						startActivity(mIntent);
+					}
 					break;
 
 				case R.id.index_shake:
@@ -191,8 +198,12 @@ public class IndexActivity extends BaseActivity implements OnClickListener,
 					break;
 
 				case R.id.index_collect_btn:
-					mIntent=new Intent(IndexActivity.this, PersonalFavouriteActivity.class);
-					startActivity(mIntent);
+					if(u_name.equals(""))
+						Toast.makeText(IndexActivity.this, "尚未登陆", Toast.LENGTH_SHORT).show();
+					else {
+						mIntent = new Intent(IndexActivity.this, PersonalFavouriteActivity.class);
+						startActivity(mIntent);
+					}
 					break;
 
 				default:

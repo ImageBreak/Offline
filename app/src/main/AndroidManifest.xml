@@ -93,22 +93,7 @@
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name=".ui.IndexClothingActivity"
-            android:launchMode="singleTop"
-            android:theme="@style/AppTheme" >
-        </activity>
-        <activity
-            android:name=".ui.IndexDigtalActivity"
-            android:launchMode="singleTop"
-            android:theme="@style/AppTheme" >
-        </activity>
-        <activity
             android:name=".ui.IndexDaily"
-            android:launchMode="singleTop"
-            android:theme="@style/AppTheme" >
-        </activity>
-        <activity
-            android:name=".ui.IndexEbookActivity"
             android:launchMode="singleTop"
             android:theme="@style/AppTheme" >
         </activity>
@@ -119,11 +104,6 @@
         </activity>
         <activity
             android:name=".zxing.CaptureResultActivity"
-            android:launchMode="singleTop"
-            android:theme="@style/AppTheme" >
-        </activity>
-        <activity
-            android:name=".home.WareActivity"
             android:launchMode="singleTop"
             android:theme="@style/AppTheme" >
         </activity>
@@ -149,6 +129,8 @@
         <activity android:name=".ui.PersonalStore" >
         </activity>
         <activity android:name=".ui.BabyCommentActivity" >
+        </activity>
+        <activity android:name=".task.ExDialog">
         </activity>
     </application>
 

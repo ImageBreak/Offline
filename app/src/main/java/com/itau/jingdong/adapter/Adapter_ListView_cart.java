@@ -8,9 +8,12 @@ import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.toolbox.ImageLoader;
 import com.itau.jingdong.R;
+import com.itau.jingdong.http.CU_VolleyTool;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -52,17 +55,23 @@ public class Adapter_ListView_cart extends BaseAdapter {
 		if (currentView == null) {
 			holderView = new HolderView();
 			currentView = LayoutInflater.from(context).inflate(R.layout.adapter_listview_cart, null);
+			holderView.tv_name = (TextView) currentView.findViewById(R.id.tv_name);
 			holderView.tv_num = (TextView) currentView.findViewById(R.id.tv_num);
 			holderView.tv_type_color = (TextView) currentView.findViewById(R.id.tv_type_color);
+			holderView.tv_price = (TextView) currentView.findViewById(R.id.tv_price);
 			holderView.cb_choice = (CheckBox) currentView.findViewById(R.id.cb_choice);
+			holderView.iv_pic = (ImageView) currentView.findViewById(R.id.iv_pic);
 			currentView.setTag(holderView);
 		} else {
 			holderView = (HolderView) currentView.getTag();
 		}
 		if (arrayList.size() != 0) {
+			ImageLoader.ImageListener listener1 = ImageLoader.getImageListener(holderView.iv_pic, R.drawable.ic_launcher, R.drawable.ic_launcher);
+			//CU_VolleyTool.getInstance(context).getmImageLoader().get(arrayList.get(position).get("pic").toString(), listener1);
 			holderView.tv_num.setText("x" + arrayList.get(position).get("num"));
 			holderView.tv_type_color.setText("类型:" + arrayList.get(position).get("type").toString() + "    颜色:" + arrayList.get(position).get("color").toString());
-			
+			holderView.tv_name.setText(arrayList.get(position).get("name").toString());
+			holderView.tv_price.setText("￥"+arrayList.get(position).get("price").toString());
 			holderView.cb_choice.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 				@Override
 				public void onCheckedChanged(CompoundButton arg0, boolean choice) {
@@ -79,7 +88,10 @@ public class Adapter_ListView_cart extends BaseAdapter {
 
 		private TextView tv_type_color;
 		private TextView tv_num;
+		private TextView tv_name;
+		private TextView tv_price;
 		private CheckBox cb_choice;
+		private ImageView iv_pic;
 
 	}
 	

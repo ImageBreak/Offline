@@ -1,6 +1,7 @@
 package com.itau.jingdong.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,29 +44,35 @@ public class CategoryActivity extends BaseActivity {
 			@Override
 			public void onItemClick(AdapterView<?> adapterview, View view, int parent,
 					long id) {
-				//Toast.makeText(CategoryActivity.this, "你点击了第"+id+"项",1 ).show();
-				//Intent mIntent = new Intent(CategoryActivity.this, WareActivity.class);
-				//startActivity(mIntent);
+
+				SharedPreferences sp = getSharedPreferences("info", MODE_PRIVATE);
+				SharedPreferences.Editor ed = sp.edit();
 				switch ((int)id){
 					case 0:
-						mIntent = new Intent(CategoryActivity.this, IndexDaily.class);
-						startActivity(mIntent);
+						ed.remove("cate");
+						ed.putString("cate","家电");
+						ed.commit();
 						break;
 					case 1:
-						mIntent = new Intent(CategoryActivity.this, IndexEbookActivity.class);
-						startActivity(mIntent);
+						ed.remove("cate");
+						ed.putString("cate","图书");
+						ed.commit();
 						break;
 					case 2:
-						mIntent = new Intent(CategoryActivity.this, IndexClothingActivity.class);
-						startActivity(mIntent);
+						ed.remove("cate");
+						ed.putString("cate","衣服");
+						ed.commit();
 						break;
 					case 3:
-						mIntent = new Intent(CategoryActivity.this, IndexDigtalActivity.class);
-						startActivity(mIntent);
+						ed.remove("cate");
+						ed.putString("cate","数码");
+						ed.commit();
 						break;
 					default:
 						break;
 				}
+				mIntent = new Intent(CategoryActivity.this, IndexDaily.class);
+				startActivity(mIntent);
 			}
 		});
 	}

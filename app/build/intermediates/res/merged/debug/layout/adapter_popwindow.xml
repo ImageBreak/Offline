@@ -18,17 +18,44 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:src="@drawable/splash_logo" />
-
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:layout_marginLeft="10dp"
-            android:text="￥49.00   库存750"
+            android:text="￥"
             android:textColor="@color/tv_Red"
             android:textSize="18sp" />
-
+        <TextView
+            android:id="@+id/pop_price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="2"
+            android:layout_marginLeft="10dp"
+            android:text="49.00"
+            android:textColor="@color/tv_Red"
+            android:textSize="18sp" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:text="库存"
+            android:textColor="@color/tv_Red"
+            android:textSize="18sp" />
+        <TextView
+            android:id="@+id/pop_amount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="2"
+            android:layout_marginLeft="10dp"
+            android:text="10"
+            android:textColor="@color/tv_Red"
+            android:textSize="18sp" />
         <ImageView
             android:id="@+id/pop_del"
             android:layout_width="wrap_content"

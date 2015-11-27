@@ -1,15 +1,11 @@
 package com.itau.jingdong.ui;
 
-
-import java.util.HashMap;
-import java.util.concurrent.Callable;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
+import android.app.ProgressDialog;
 import android.content.Intent;
-import android.os.AsyncTask;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -18,58 +14,52 @@ import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.itau.jingdong.R;
-import com.itau.jingdong.bean.Constants;
-import com.itau.jingdong.task.Callback;
+import com.itau.jingdong.bean.User;
+import com.itau.jingdong.json.WriteJson;
 import com.itau.jingdong.ui.base.BaseActivity;
+import com.itau.jingdong.Operaton;
+
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class LoginActivity extends BaseActivity implements OnClickListener {
 	
-private static final String Tag="LoginActivity";
-private LoginActivity loginActivity=null;
-	private ImageView loginLogo,login_more;
+	private static final String Tag="LoginActivity";
 	private EditText loginaccount,loginpassword;
 	private ToggleButton isShowPassword;
-	private boolean isDisplayflag=false;//是否显示密码
-	private String getpassword;
-	private Button loginBtn,register,upload;
+	private Button loginBtn,register;
 	private Intent mIntent;
-	private String serverAddress="http://mdemo.e-cology.cn/login.do";
-	public static String MOBILE_SERVERS_URL="http://mserver.e-cology.cn/servers.do";
-	 String username;
-	 String password;
-	
+	String u_name;
+	String u_pass;
+	public String jsonString;
+	public JSONObject temp;
+
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
-		
-		loginActivity=LoginActivity.this;
 		findViewById();
 		initView();
 	}
 	
 	@Override
 	protected void findViewById() {
-		loginLogo=(ImageView)this.findViewById(R.id.logo);
-		login_more=(ImageView)this.findViewById(R.id.login_more);
 		loginaccount=(EditText)this.findViewById(R.id.loginaccount);
 		loginpassword=(EditText)this.findViewById(R.id.loginpassword);
-		
 		isShowPassword=(ToggleButton)this.findViewById(R.id.isShowPassword);
 		loginBtn=(Button)this.findViewById(R.id.login);
 		register=(Button)this.findViewById(R.id.register);
-		upload=(Button)this.findViewById(R.id.upload);
-		
-		getpassword=loginpassword.getText().toString();
+
 	}
 
-	
-	
-	
 	@Override
 	protected void initView() {
 
@@ -92,8 +82,6 @@ private LoginActivity loginActivity=null;
 				Log.i("togglebutton", ""+isChecked);
 			}
 		});
-	
-		
 		loginBtn.setOnClickListener(this);
 	
 	}
@@ -104,13 +92,11 @@ private LoginActivity loginActivity=null;
 	case R.id.register:
 		mIntent=new Intent(LoginActivity.this, RegisterBormalActivity.class);
 		startActivity(mIntent);
-
 		break;
 
 		
 	case R.id.login:
 		userlogin();
-		
 		break;
 		
 	default:
@@ -120,110 +106,85 @@ private LoginActivity loginActivity=null;
 	}
 
 	private void userlogin() {
-		 username=loginaccount.getText().toString().trim();
-		 password=loginpassword.getText().toString().trim();
-		String serverAdd = serverAddress;
+		u_name=loginaccount.getText().toString().trim();
+		u_pass=loginpassword.getText().toString().trim();
 		
-		if(username.equals("")){
+		if(u_name.equals("")){
 			DisplayToast("用户名不能为空!");
 		}
-		if(password.equals("")){
+		else if(u_pass.equals("")){
 			DisplayToast("密码不能为空!");
 		}
 		
-		if(username.equals("test")&&password.equals("123")){
-			DisplayToast("登錄成功!");
-			Intent data=new Intent();  
-            data.putExtra("name", username);  
-//            data.putExtra("values", 100);  
-            //请求代码可以自己设置，这里设置成20  
-            setResult(20, data); 
-			
+		else if(u_name.equals("test")&&u_pass.equals("123")){
+			DisplayToast("登陆成功!");
+			Intent data=new Intent();
+			SharedPreferences sp = getSharedPreferences("info",MODE_PRIVATE);
+			SharedPreferences.Editor ed;
+			ed = sp.edit();
+			ed.putString("u_name", u_name);
+			ed.commit();
+            data.putExtra("name", u_name);
+//            data.putExtra("values", 100);
+            setResult(20, data);
 			LoginActivity.this.finish();
 		}
-		
-//		new LoginTask().execute(username, password);
-		
+		else {
+			new Thread(new Runnable() {
+
+				public void run() {
+					Operaton operaton = new Operaton();
+					User user=new User(u_name,u_pass);
+					WriteJson writeJson=new WriteJson();
+					//将user对象写出json形式字符串
+					jsonString= writeJson.getJsonData(user);
+					System.out.println(jsonString);
+					temp = operaton.UpData("login.action", jsonString);
+					if(temp != null) {
+						Message msg = new Message();
+						try {
+							msg.obj = temp.getString("result").toString();
+						} catch (Exception e) {
+							throw new RuntimeException(e);
+						}
+						handler.sendMessage(msg);
+					}
+				}
+			}).start();
+		}
 	}
 
-	//登录系统
-	private void doLogin(){
-		
-		final String uaername=loginaccount.getText().toString().trim();
-		final String password=loginpassword.getText().toString().trim();
-		String serverAdd = serverAddress;
-		
-		if(uaername.equals("")){
-			DisplayToast("用户名不能为空!");
-		}
-		if(password.equals("")){
-			DisplayToast("密码不能为空!");
-		}
-		
-		loginActivity.doAsync(new Callable<Boolean>() {
-
-			@Override
-			public Boolean call() throws Exception {
-
-				String clientVersion = getVersionName();
-				String deviceid = getDeviceId();
-				String token = getToken();
-				String clientOs = getClientOs();
-				String clientOsVer = getClientOsVer();
-				String language = getLanguage();
-				String country = getCountry();
-				
-				Constants.clientVersion = clientVersion;
-				Constants.deviceid = deviceid;
-				Constants.token = token;
-				Constants.clientOs = clientOs;
-				Constants.clientOsVer = clientOsVer;
-				Constants.language = language;
-				Constants.country = country;
-				Constants.user = uaername;
-				Constants.pass = password;
-
-				return true;
-			}
-			
-		}, new Callback<Boolean>() {
-
-			@Override
-			public void onCallback(Boolean pCallbackValue) {
-				// TODO Auto-generated method stub
-				
-			}
-		}, new Callback<Exception>() {
-
-			@Override
-			public void onCallback(Exception pCallbackValue) {
-				// TODO Auto-generated method stub
-				
-			}
-		}, true, getResources().getString(R.string.login_loading));
-		
-	}
-
-	class LoginTask extends AsyncTask<String, Void, JSONObject>{
-
-
+	Handler handler=new Handler(){
 		@Override
-		protected JSONObject doInBackground(String... params) {
-			HashMap<String, String> map=new HashMap<String, String>();
-			
-			map.put("name", username);
-			map.put("pass", password);
-			map.put("server", serverAddress);
-			
-			
-			try {
-				return new JSONObject(new String("{a:1,b:2}"));
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		public void handleMessage(Message msg) {
+			SharedPreferences sp = getSharedPreferences("info",MODE_PRIVATE);
+			SharedPreferences.Editor ed;
+			String result=(String) msg.obj;
+			if(result.equals("1")) {
+				ed = sp.edit();
+				ed.putString("u_name", u_name);
+		/*		try {
+					ed.putString("u_pic", temp.getString("u_pic").toString());
+				}
+				catch (Exception e){
+					throw new RuntimeException(e);
+				}*/
+				ed.commit();
+				mIntent = new Intent();
+				mIntent.putExtra("name", u_name);
+				setResult(20, mIntent);
+				LoginActivity.this.finish();
 			}
-			return null;
+			else if(result.equals("0")){
+				try {
+					Toast.makeText(LoginActivity.this, temp.getString("error").toString(), Toast.LENGTH_SHORT).show();
+				}
+				catch (Exception e){
+					throw new RuntimeException(e);
+				}
+			}
+			super.handleMessage(msg);
 		}
-	}
-	
+	};
+
 }

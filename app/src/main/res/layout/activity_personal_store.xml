@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#f0f0f0">
+<LinearLayout
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#f0f0f0"
@@ -110,6 +114,54 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:text="库存："
+            android:textColor="@color/black" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/ckdaily"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="家电" />
+
+            <RadioButton
+                android:id="@+id/ckebook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="图书" />
+
+            <RadioButton
+                android:id="@+id/ckcloth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="衣服" />
+
+            <RadioButton
+                android:id="@+id/ckdigital"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="数码" />
+        </RadioGroup>
+
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:text="上传图片:                                                  "
             android:textColor="@color/black" />
         <Button
@@ -121,7 +173,13 @@
 
 
     </LinearLayout>
-
+    <ImageView
+        android:id="@+id/imgphoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_back" />
 
     <Button
         android:id="@+id/confirm"
@@ -135,3 +193,4 @@
         android:textSize="16sp" />
 
 </LinearLayout>
+</ScrollView>

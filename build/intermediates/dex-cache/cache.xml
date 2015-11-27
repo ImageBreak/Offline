@@ -2,11 +2,39 @@
 <items version="2" >
 
     <item
-        jar="D:\Android studio pro\Mystore\app\libs\aseo2.jar"
+        jar="D:\Android studio pro\Mystore\app\libs\httpmime-4.1.3.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="07cbe16c3e33aef277b253a8e8f452bda59c58ef">
-        <dex dex="D:\Android studio pro\Mystore\app\build\intermediates\pre-dexed\debug\aseo2-089a9bdeda9a529c921bbef64ae4d2a34b57792a.jar" />
+        sha1="e70d34d98f7f7f3b2b92105b9f2fe2a7a7184461">
+        <dex dex="D:\Android studio pro\Mystore\app\build\intermediates\pre-dexed\debug\httpmime-4.1.3-18bec0174eb03e004cc652bb0921bef1e96cd614.jar" />
+    </item>
+    <item
+        jar="D:\Android studio pro\Mystore\app\libs\gson-1.6.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="0e420e7635e40fbef3e2cc257c702b1427962d1d">
+        <dex dex="D:\Android studio pro\Mystore\app\build\intermediates\pre-dexed\debug\gson-1.6-1fa95d55fb53e8cf74e3be6454031e934fccecb3.jar" />
+    </item>
+    <item
+        jar="D:\Android\sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
+        <dex dex="D:\Android studio pro\Mystore\app\build\intermediates\pre-dexed\debug\support-v4-18.0.0-5c13dae993a3a70564280b74f4a6300075997e8b.jar" />
+    </item>
+    <item
+        jar="D:\Android studio pro\Mystore\app\libs\universal-image-loader-1.8.6-with-sources.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="9ad605dd55be2e74e614b2ab2ff466439c4461b7">
+        <dex dex="D:\Android studio pro\Mystore\app\build\intermediates\pre-dexed\debug\universal-image-loader-1.8.6-with-sources-af26affad157e82f55f8f56a87349010308d3c7f.jar" />
+    </item>
+    <item
+        jar="D:\Android studio pro\Mystore\app\libs\nineoldandroids.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="302641a4becc017c01e83308ee17a484d6f371cd">
+        <dex dex="D:\Android studio pro\Mystore\app\build\intermediates\pre-dexed\debug\nineoldandroids-e43bb43ed830e31e47276790860235caae8999a2.jar" />
     </item>
     <item
         jar="D:\Android studio pro\Mystore\app\libs\cu_volley.jar"
@@ -16,18 +44,11 @@
         <dex dex="D:\Android studio pro\Mystore\app\build\intermediates\pre-dexed\debug\cu_volley-1424e54aa60a956b228d7227b6549dc6aa01070e.jar" />
     </item>
     <item
-        jar="D:\Android studio pro\Mystore\app\libs\httpcore.jar"
+        jar="D:\Android studio pro\Mystore\app\libs\zxing.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="42fd0eaeee98eb9e1c8cfbcef742a34b54522c4c">
-        <dex dex="D:\Android studio pro\Mystore\app\build\intermediates\pre-dexed\debug\httpcore-9be91323d490a2edb5156523a36cf5fb2ea821de.jar" />
-    </item>
-    <item
-        jar="D:\Android studio pro\Mystore\app\libs\core.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="c6f3cdc572ddfd37a19f1c1fdb96cda324e8a12a">
-        <dex dex="D:\Android studio pro\Mystore\app\build\intermediates\pre-dexed\debug\core-aea45aefcb8188dcd8089ffd43f879a85aa96c3f.jar" />
+        sha1="a8fa6078b1a96943028ddaf4412198bb0f119100">
+        <dex dex="D:\Android studio pro\Mystore\app\build\intermediates\pre-dexed\debug\zxing-4bce031ea345e64cddb980d847ab19b8b2847d1c.jar" />
     </item>
 
 </items>

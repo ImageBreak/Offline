@@ -18,7 +18,7 @@
             android:focusableInTouchMode="false" />
 
         <ImageView
-            android:id="@+id/iv_adapter_list_pic"
+            android:id="@+id/iv_pic"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_margin="5dp"
@@ -37,7 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="这只是一件商品= ="
+                android:text="商品名"
                 android:textColor="@color/tv_Black" />
 
             <TextView

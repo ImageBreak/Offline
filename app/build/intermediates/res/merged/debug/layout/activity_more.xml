@@ -47,7 +47,7 @@
                 android:paddingTop="14.0dip" >
 
                 <ImageView
-                    android:id="@+id/image_history"
+                    android:id="@+id/app_recommend"
                     android:layout_width="23.0dip"
                     android:layout_height="23.0dip"
                     android:layout_centerVertical="true"
@@ -57,7 +57,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/more_apps"
                     android:textSize="16.0dip"
-                    android:layout_toRightOf="@id/image_history"
+                    android:layout_toRightOf="@id/app_recommend"
                     android:paddingLeft="15dip"
                     android:layout_centerVertical="true"/>
                 <ImageView 
@@ -72,7 +72,6 @@
                 android:layout_height="1.0dip"
                 android:background="#ffcccccc"/>
             <RelativeLayout
-                android:id="@+id/more_seting"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:minHeight="50.0dip"

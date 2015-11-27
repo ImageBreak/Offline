@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0">
+<LinearLayout
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#f0f0f0"
@@ -36,12 +40,11 @@
             android:text="@string/register_normal_useraccount"
             android:textColor="@color/black" />
        
-        <EditText 
+        <EditText
+            android:id="@+id/U_name"
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
             android:layout_marginLeft="20dp"
-            android:inputType="number"
-           android:background="@drawable/category_selection_gridview_bg"
             android:layout_gravity="center_vertical"
             />
         
@@ -63,12 +66,11 @@
             android:text="@string/register_normal_email"
             android:textColor="@color/black" />
        
-        <EditText 
+        <EditText
+            android:id="@+id/U_pay"
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
-            android:layout_marginLeft="35dp"
-            android:inputType="number"
-           android:background="@drawable/category_selection_gridview_bg"
+            android:layout_marginLeft="20dp"
             android:layout_gravity="center_vertical"
             />
         
@@ -89,18 +91,18 @@
             android:text="@string/register_normal_password"
             android:textColor="@color/black" />
        
-        <EditText 
+        <EditText
+            android:id="@+id/U_pass"
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
             android:layout_marginLeft="35dp"
-            android:inputType="number"
-           android:background="@drawable/category_selection_gridview_bg"
+            android:inputType="textPassword"
             android:layout_gravity="center_vertical"
             />
         
     </LinearLayout>
     
-            <LinearLayout
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="40dp"
         android:layout_marginLeft="20dp"
@@ -115,27 +117,59 @@
             android:text="@string/register_normal_repassword"
             android:textColor="@color/black" />
        
-        <EditText 
+        <EditText
+            android:id="@+id/U_repass"
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
             android:layout_marginLeft="10dp"
-            android:inputType="number"
-           android:background="@drawable/category_selection_gridview_bg"
+            android:inputType="textPassword"
             android:layout_gravity="center_vertical"
             />
         
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="上传图片:                                                  "
+            android:textColor="@color/black" />
+        <Button
+            android:id="@+id/upload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_product_num_cancle_normal"
+            android:text="上传"/>
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imgphoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_back" />
+    <Button
+        android:id="@+id/login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/edit_product_num_cancle_normal"
+        android:gravity="center"
+        android:text="注册"
+        android:textSize="16sp" />
+
 
             
-            <Button
-                android:id="@+id/login"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/edit_product_num_cancle_normal"
-                android:gravity="center"
-                android:text="注册"
-                android:textSize="16sp" />
-            
-</LinearLayout><!-- From: file:/D:/Android%20studio%20pro/Mystore/app/src/main/res/layout/activity_register_normal.xml -->
+    </LinearLayout>
+</ScrollView><!-- From: file:/D:/Android%20studio%20pro/Mystore/app/src/main/res/layout/activity_register_normal.xml -->

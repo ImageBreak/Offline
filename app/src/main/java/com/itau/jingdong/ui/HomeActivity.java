@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -34,6 +35,7 @@ public class HomeActivity extends TabActivity {
 	public static final String TAB_CART = "CART_ACTIVITY";
 	public static final String TAB_PERSONAL = "PERSONAL_ACTIVITY";
 
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -43,6 +45,11 @@ public class HomeActivity extends TabActivity {
 
 		findViewById();
 		initView();
+		SharedPreferences sp = getSharedPreferences("info",MODE_PRIVATE);
+		SharedPreferences.Editor ed;
+		ed = sp.edit();
+		ed.clear();
+		ed.commit();
 	}
 
 	private void findViewById() {
@@ -76,6 +83,7 @@ public class HomeActivity extends TabActivity {
 				.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 					public void onCheckedChanged(RadioGroup group, int checkedId) {
 						switch (checkedId) {
+
 						case R.id.home_tab_main:
 							mTabHost.setCurrentTabByTag(TAB_MAIN);
 							break;

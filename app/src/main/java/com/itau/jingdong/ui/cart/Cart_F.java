@@ -31,12 +31,14 @@ public class Cart_F extends FragmentActivity implements OnClickListener {
 	private LowBaby_F lowBaby_F;
 	private StockBaby_F stockBaby_F;
 	private boolean isDel=true;
-
 	@Override
 	public void onCreate( Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.cart_f);
-
+		SharedPreferences sp = getSharedPreferences("SAVE_CART", MODE_PRIVATE);
+		SharedPreferences.Editor ed = sp.edit();
+		ed.clear();
+		ed.commit();
 		return ;
 	}
 
@@ -51,12 +53,18 @@ public class Cart_F extends FragmentActivity implements OnClickListener {
 	/** 得到保存的购物车数据 */
 	private void getSaveData() {
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
-		SharedPreferences sp = getSharedPreferences("SAVE_CART", Context.MODE_PRIVATE);
+		SharedPreferences sp = getSharedPreferences("SAVE_CART", MODE_PRIVATE);
 		int size = sp.getInt("ArrayCart_size", 0);
+		System.out.println(size);
 		for (int i = 0; i < size; i++) {
 			hashMap.put("type", sp.getString("ArrayCart_type_" + i, ""));
 			hashMap.put("color", sp.getString("ArrayCart_color_" + i, ""));
 			hashMap.put("num", sp.getString("ArrayCart_num_" + i, ""));
+			hashMap.put("name", sp.getString("ArrayCart_name_" + i, ""));
+			hashMap.put("price", sp.getString("ArrayCart_price_" + i, ""));
+			hashMap.put("pic", sp.getString("ArrayCart_pic_" + i, ""));
+			hashMap.put("g_id", sp.getString("ArrayCart_g_id_" + i, ""));
+			hashMap.put("u_name",sp.getString("ArrayCart_u_name_"+i, ""));
 			Data.arrayList_cart.add(hashMap);
 		}
 	}

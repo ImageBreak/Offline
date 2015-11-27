@@ -1,6 +1,7 @@
 package com.itau.jingdong.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -11,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.itau.jingdong.AppManager;
 import com.itau.jingdong.R;
@@ -32,6 +34,8 @@ public class PersonalActivity extends BaseActivity implements OnClickListener {
 	private RelativeLayout Ly_personalInfo;
 	private TextView username;
 	private int LOGIN_CODE=100;
+	public String u_name;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -71,11 +75,14 @@ public class PersonalActivity extends BaseActivity implements OnClickListener {
 		mHistory.setOnClickListener(this);
 		mFavourite.setOnClickListener(this);
 		mStore.setOnClickListener(this);
+
 	}
 
 	@Override
 	public void onClick(View v) {
 		//CommonTools.showShortToast(PersonalActivity.this, "稍后开放");
+		SharedPreferences sp = getSharedPreferences("info", MODE_PRIVATE);
+		u_name = sp.getString("u_name","");
 		switch (v.getId()) {
 		case R.id.personal_login_button:
 			mIntent=new Intent(PersonalActivity.this, LoginActivity.class);
@@ -84,23 +91,36 @@ public class PersonalActivity extends BaseActivity implements OnClickListener {
 			break;
 
 		case R.id.personal_more_button:
-			mIntent=new Intent(PersonalActivity.this, MoreActivity.class);
+			mIntent = new Intent(PersonalActivity.this, MoreActivity.class);
 			startActivity(mIntent);
+
 			break;
 
 		case R.id.mhistory:
-			mIntent=new Intent(PersonalActivity.this,PersonalHistory.class);
-			startActivity(mIntent);
+			if(u_name.equals(""))
+				Toast.makeText(PersonalActivity.this, "请先登录", Toast.LENGTH_SHORT).show();
+			else {
+				mIntent = new Intent(PersonalActivity.this, PersonalHistory.class);
+				startActivity(mIntent);
+			}
 			break;
 
 		case R.id.mstore:
-			mIntent=new Intent(PersonalActivity.this,PersonalStore.class);
-			startActivity(mIntent);
+			if(u_name.equals(""))
+				Toast.makeText(PersonalActivity.this, "请先登录", Toast.LENGTH_SHORT).show();
+			else {
+				mIntent = new Intent(PersonalActivity.this, PersonalStore.class);
+				startActivity(mIntent);
+			}
 			break;
 
 		case R.id.mfavourite:
-			mIntent=new Intent(PersonalActivity.this,PersonalFavouriteActivity.class);
-			startActivity(mIntent);
+			if(u_name.equals(""))
+				Toast.makeText(PersonalActivity.this, "请先登录", Toast.LENGTH_SHORT).show();
+			else {
+				mIntent = new Intent(PersonalActivity.this, PersonalFavouriteActivity.class);
+				startActivity(mIntent);
+			}
 			break;
 
 		case R.id.personal_exit:
@@ -124,9 +144,9 @@ public class PersonalActivity extends BaseActivity implements OnClickListener {
 		// TODO Auto-generated method stub
 		
 		if(resultCode==20){
-//			String name=data.getExtras().getString("username");
+			String name=data.getExtras().getString("name");
 //			Log.i("name", name);
-//			username.setText(name);
+			username.setText(name);
 			if(Ly_login.isShown()){
 				Ly_personalInfo.setVisibility(View.VISIBLE);
 				Ly_login.setVisibility(View.GONE);

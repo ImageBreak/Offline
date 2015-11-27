@@ -7,11 +7,14 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
@@ -23,17 +26,30 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.itau.jingdong.Data.Data;
 import com.itau.jingdong.MyView.BabyPopWindow;
 import com.itau.jingdong.MyView.BabyPopWindow.OnItemClickListener;
+import com.itau.jingdong.Operaton;
 import com.itau.jingdong.R;
 import com.itau.jingdong.adapter.Adapter_ListView_detail;
 import com.itau.jingdong.ScaleView.HackyViewPager;
+import com.itau.jingdong.bean.Evaluation;
+import com.itau.jingdong.bean.Favorite;
+import com.itau.jingdong.bean.Good;
+import com.itau.jingdong.bean.Trade;
+import com.itau.jingdong.json.WriteJson;
 import com.itau.jingdong.ui.BabyCommentActivity;
 //import com.zdp.aseo.content.AseoZdpAseo;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 单个商品详情界面
@@ -45,28 +61,42 @@ public class BabyActivity extends FragmentActivity implements OnItemClickListene
 
 	private HackyViewPager viewPager;
 	private ArrayList<View> allListView;
-	private int[] resId = { R.drawable.detail_show_1, R.drawable.detail_show_2, R.drawable.detail_show_3, R.drawable.detail_show_4, R.drawable.detail_show_5, R.drawable.detail_show_6 };
 	private ListView listView;
-	private ImageView iv_baby_collection;
+	private ImageView iv_baby_collection,iv_baby;
 	/**弹出商品订单信息详情*/
 	private BabyPopWindow popWindow;
 	/** 用于设置背景暗淡 */
 	private LinearLayout all_choice_layout = null;
 	/**是否添加收藏*/
-	private static boolean isCollection=false; 
+	private boolean isCollection=false;
 	/**ViewPager当前显示页的下标*/
 	private int position=0;
 	
-	
+	public  String u_name,jsonString = null,temp1,g_pic,g_name,g_price;
+	public  int g_id;
+	private Operaton operaton = new Operaton();
+	public JSONObject temp;
+	private TextView iv_baby_des,iv_baby_price;
+	public List<Evaluation> eva = new ArrayList<Evaluation>();
+	Bitmap bitmap;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.babydetail_a);
 		//得到保存的收藏信息
+		SharedPreferences sp = getSharedPreferences("info",MODE_PRIVATE);
+		u_name=sp.getString("u_name", "");
+		g_id=sp.getInt("g_id", -1);
 		getSaveCollection();
-		initView();
 		popWindow = new BabyPopWindow(this);
 		popWindow.setOnItemClickListener(this);
+	}
+
+	/**实现数据的刷新*/
+	@Override
+	protected void onResume() {
+		super.onResume();
+		initView();
 	}
 
 	@SuppressLint("NewApi")
@@ -82,29 +112,89 @@ public class BabyActivity extends FragmentActivity implements OnItemClickListene
 		iv_baby_collection=(ImageView) findViewById(R.id.iv_baby_collection);
 		iv_baby_collection.setOnClickListener(this);
 		all_choice_layout = (LinearLayout) findViewById(R.id.all_choice_layout);
+		iv_baby_des = (TextView)findViewById(R.id.iv_baby_des);
+		iv_baby_price = (TextView)findViewById(R.id.iv_baby_price);
+		iv_baby = (ImageView)findViewById(R.id.iv_baby);
 		/**以下为商品评论相关，目前只是默认填充*/
-		listView = (ListView) findViewById(R.id.listView_Detail);
-		listView.setFocusable(false);
-		listView.setSelector(new ColorDrawable(Color.TRANSPARENT));
-		listView.setAdapter(new Adapter_ListView_detail(this));
-	/*	listView.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
+		SharedPreferences sp = getSharedPreferences("info", MODE_PRIVATE);
+		if(g_id != -1){
+			System.out.println(g_id);
+			g_pic = sp.getString("g_pic","");
+			g_name = sp.getString("g_name","");
+			g_price = sp.getString("g_price","");
+			iv_baby_des.setText(g_name);
+			iv_baby_price.setText("￥" + g_price + "元");
+		/*	new Thread(new Runnable() {
 
-			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-				//进入店铺
-				Uri uri = Uri.parse("http://baidu.com");
-				Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-				startActivity(intent);
+				public void run() {
+					//将trade对象写出json形式字符串
+					bitmap = operaton.getHttpBitmap(g_pic);
+					if(bitmap != null) {
+						Message msg = new Message();
+						try {
+							msg.obj = "1";
+						} catch (Exception e) {
+							throw new RuntimeException(e);
+						}
+						handler5.sendMessage(msg);
+					}
+				}
+			}).start();*/
+		}
+		jsonString= "{\"g_id\":"+g_id+"}";
+		System.out.println(jsonString);
+		new Thread(new Runnable() {
+
+			public void run() {
+				//将trade对象写出json形式字符串
+				temp1 = operaton.GetData("evaluationlist.action", jsonString);
+				Message msg = new Message();
+				if(temp1 != null) {
+					msg.obj = "1";
+				}
+				else if(temp1 == null){
+					msg.obj = "0";
+				}
+				handler4.sendMessage(msg);
 			}
-		});*/
-		initViewPager();
+		}).start();
 		
 		if (isCollection) {
 			//如果已经收藏，则显示收藏后的效果
 			iv_baby_collection.setImageResource(R.drawable.second_2_collection);
 		}
 	}
-	
+
+	Handler handler4=new Handler(){
+		@Override
+		public void handleMessage(Message msg) {
+			String msgobj=msg.obj.toString();
+			if(msgobj.equals("1")){
+				Gson gson = new Gson();
+				listView = (ListView) findViewById(R.id.listView_Detail);
+				listView.setFocusable(false);
+				listView.setSelector(new ColorDrawable(Color.TRANSPARENT));
+				eva = gson.fromJson(temp1, new TypeToken<List<Evaluation>>() {}.getType());
+				listView.setAdapter(new Adapter_ListView_detail(BabyActivity.this, eva));
+			}
+			else if(msgobj.equals("0")){
+				listView = (ListView) findViewById(R.id.listView_Detail);
+				listView = null;
+			}
+			super.handleMessage(msg);
+		}
+	};
+
+	Handler handler5=new Handler(){
+		@Override
+		public void handleMessage(Message msg) {
+			String msgobj=msg.obj.toString();
+			if(msgobj.equals("1")){
+				iv_baby.setImageBitmap(bitmap);
+			}
+			super.handleMessage(msg);
+		}
+	};
 	@Override
 	public void onClick(View view) {
 		switch (view.getId()) {
@@ -118,100 +208,102 @@ public class BabyActivity extends FragmentActivity implements OnItemClickListene
 				//提示是否取消收藏
 				cancelCollection();
 			}else {
-				isCollection=true;
-				setSaveCollection();
-				//如果已经收藏，则显示收藏后的效果
-				iv_baby_collection.setImageResource(R.drawable.second_2_collection);
-				Toast.makeText(this, "收藏成功", Toast.LENGTH_SHORT).show();
+				if(u_name.equals(""))
+					Toast.makeText(BabyActivity.this, "尚未登陆", Toast.LENGTH_SHORT).show();
+				else {
+					new Thread(new Runnable() {
+
+						public void run() {
+							Favorite fav = new Favorite(g_id, u_name);
+							WriteJson writeJson = new WriteJson();
+							//将user对象写出json形式字符串
+							jsonString = writeJson.getJsonData(fav);
+							System.out.println(jsonString);
+							temp = operaton.UpData("addfavorite.action", jsonString);
+							if(temp != null) {
+								Message msg = new Message();
+								try {
+									msg.obj = temp.getString("result").toString();
+								} catch (Exception e) {
+									throw new RuntimeException(e);
+								}
+								handler2.sendMessage(msg);
+							}
+						}
+					}).start();
+				}
 			}
 			break;
 		case R.id.put_in:
 			//添加购物车
-			setBackgroundBlack(all_choice_layout, 0);
-			popWindow.showAsDropDown(view);
+				setBackgroundBlack(all_choice_layout, 0);
+				popWindow.showAsDropDown(view);
 			break;
 		case R.id.buy_now:
 			//添加评论
-			Intent intent = new Intent(BabyActivity.this, BabyCommentActivity.class);
-			startActivity(intent);
-			break;
+
+			if(u_name.equals(""))
+				Toast.makeText(BabyActivity.this, "请先登陆", Toast.LENGTH_SHORT).show();
+			else {
+				Trade trade = new Trade();
+				trade.setG_id(g_id);
+				trade.setU_name(u_name);
+				WriteJson writeJson=new WriteJson();
+				jsonString= writeJson.getJsonData(trade);
+				System.out.println(jsonString);
+				new Thread(new Runnable() {
+
+					public void run() {
+						Operaton operaton = new Operaton();
+						//将trade对象写出json形式字符串
+						temp = operaton.UpData("checktrade.action", jsonString);
+						if(temp != null) {
+							Message msg = new Message();
+							try {
+								msg.obj = temp.getString("result").toString();
+							} catch (Exception e) {
+								throw new RuntimeException(e);
+							}
+							handler3.sendMessage(msg);
+						}
+					}
+				}).start();
+				//Intent intent = new Intent(BabyActivity.this, BabyCommentActivity.class);
+				//startActivity(intent);
+				break;
+			}
 		}
 	}
-	
-	
 
-	private void initViewPager() {
-
-		if (allListView != null) {
-			allListView.clear();
-			allListView = null;
-		}
-		allListView = new ArrayList<View>();
-
-		for (int i = 0; i < resId.length; i++) {
-			View view = LayoutInflater.from(this).inflate(R.layout.pic_item, null);
-			ImageView imageView = (ImageView) view.findViewById(R.id.pic_item);
-			imageView.setImageResource(resId[i]);
-			imageView.setOnClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View arg0) {
-					//挑战到查看大图界面
-					Intent intent = new Intent(BabyActivity.this, ShowBigPictrue.class);
-					intent.putExtra("position", position);
-					startActivity(intent);
-				}
-			});
-			allListView.add(view);
-		}
-
-		viewPager = (HackyViewPager) findViewById(R.id.iv_baby);
-		ViewPagerAdapter adapter = new ViewPagerAdapter();
-		viewPager.setOnPageChangeListener(new OnPageChangeListener() {
-			
-			@Override
-			public void onPageSelected(int arg0) {
-				position=arg0;
+	Handler handler2=new Handler(){
+		@Override
+		public void handleMessage(Message msg) {
+			String msgobj=msg.obj.toString();
+			if(msgobj.equals("1")){
+				isCollection=true;
+				//如果已经收藏，则显示收藏后的效果
+				iv_baby_collection.setImageResource(R.drawable.second_2_collection);
+				Toast.makeText(BabyActivity.this, "收藏成功", Toast.LENGTH_SHORT).show();
 			}
-			
-			@Override
-			public void onPageScrolled(int arg0, float arg1, int arg2) {
-				
+			else
+				Toast.makeText(BabyActivity.this, "收藏失败", Toast.LENGTH_SHORT).show();
+			super.handleMessage(msg);
+		}
+	};
+
+	Handler handler3=new Handler(){
+		@Override
+		public void handleMessage(Message msg) {
+			String msgobj=msg.obj.toString();
+			if(msgobj.equals("1")){
+				Intent intent = new Intent(BabyActivity.this, BabyCommentActivity.class);
+				startActivity(intent);
 			}
-			
-			@Override
-			public void onPageScrollStateChanged(int arg0) {
-				
-			}
-		});
-		viewPager.setAdapter(adapter);
-
-	}
-
-	private class ViewPagerAdapter extends PagerAdapter {
-
-		@Override
-		public int getCount() {
-			return allListView.size();
+			else
+				Toast.makeText(BabyActivity.this, "未购买不能评论哟", Toast.LENGTH_SHORT).show();
+			super.handleMessage(msg);
 		}
-
-		@Override
-		public boolean isViewFromObject(View arg0, Object arg1) {
-			return arg0 ==  arg1;
-		}
-
-		@Override
-		public void destroyItem(ViewGroup container, int position, Object object) {
-			container.removeView((View) object);
-		}
-
-		@Override
-		public Object instantiateItem(ViewGroup container, int position) {
-			View view = allListView.get(position);
-			container.addView(view);
-			return view;
-		}
-
-	}
+	};
 
 	//点击弹窗的确认按钮的响应
 	@Override
@@ -232,19 +324,45 @@ public class BabyActivity extends FragmentActivity implements OnItemClickListene
 		}
 	}
 
-	/**保存是否添加收藏*/
-	private void setSaveCollection(){
-		SharedPreferences sp=getSharedPreferences("SAVECOLLECTION", Context.MODE_PRIVATE);
-		Editor editor=sp.edit();
-		editor.putBoolean("isCollection", isCollection);
-		editor.commit();
-	}
-	/**得到保存的是否添加收藏标记*/
+	/**检查收藏标记*/
 	private void getSaveCollection(){
-		SharedPreferences sp=getSharedPreferences("SAVECOLLECTION", Context.MODE_PRIVATE);
-		isCollection=sp.getBoolean("isCollection", false);
-		
+		if(g_id == -1 || u_name.equals(""))
+			isCollection = false;
+		else{
+			new Thread(new Runnable() {
+
+				public void run() {
+					Favorite fav = new Favorite(g_id,u_name);
+					WriteJson writeJson=new WriteJson();
+					//将user对象写出json形式字符串
+					jsonString= writeJson.getJsonData(fav);
+					System.out.println(jsonString+"  checkfav");
+					temp = operaton.UpData( "checkfavorite.action",jsonString);
+					if(temp != null) {
+						Message msg = new Message();
+						try {
+							msg.obj = temp.getString("result").toString();
+						} catch (Exception e) {
+							throw new RuntimeException(e);
+						}
+						handler.sendMessage(msg);
+					}
+				}
+			}).start();
+		}
 	}
+
+	Handler handler=new Handler(){
+		@Override
+		public void handleMessage(Message msg) {
+			String msgobj=msg.obj.toString();
+			if(msgobj.equals("1")) {
+				isCollection = true;
+				iv_baby_collection.setImageResource(R.drawable.second_2_collection);
+			}
+			super.handleMessage(msg);
+		}
+	};
 	/**取消收藏*/
 	private  void cancelCollection(){
 		AlertDialog.Builder dialog=new AlertDialog.Builder(this);
@@ -252,15 +370,47 @@ public class BabyActivity extends FragmentActivity implements OnItemClickListene
 		dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface arg0, int arg1) {
-				isCollection=false;
-				//如果取消收藏，则显示取消收藏后的效果
-				iv_baby_collection.setImageResource(R.drawable.second_2);
-				setSaveCollection();
+
+				new Thread(new Runnable() {
+
+					public void run() {
+
+						Favorite fav = new Favorite(g_id,u_name);
+						WriteJson writeJson=new WriteJson();
+						//将user对象写出json形式字符串
+						jsonString= writeJson.getJsonData(fav);
+						System.out.println(jsonString);
+						temp = operaton.UpData( "cancelfavorite.action", jsonString);
+						if(temp != null) {
+							Message msg = new Message();
+							try {
+								msg.obj = temp.getString("result").toString();
+							} catch (Exception e) {
+								throw new RuntimeException(e);
+							}
+							handler1.sendMessage(msg);
+						}
+					}
+				}).start();
 			}
 		});
 		dialog.setNegativeButton("取消", null);
 		dialog.create().show();
 		
 	}
-
+	Handler handler1=new Handler(){
+		@Override
+		public void handleMessage(Message msg) {
+			String msgobj=msg.obj.toString();
+			if(msgobj.equals("1")){
+				isCollection=false;
+				//如果取消收藏，则显示取消收藏后的效果
+				iv_baby_collection.setImageResource(R.drawable.second_2);
+				Toast.makeText(BabyActivity.this, "取消收藏成功", Toast.LENGTH_SHORT).show();
+			}
+			else
+				Toast.makeText(BabyActivity.this, "取消收藏失败", Toast.LENGTH_SHORT).show();
+			super.handleMessage(msg);
+		}
+	};
 }

@@ -13,38 +13,68 @@
     </layouts>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="system.out" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
+    <option name="TOOL_WINDOW_REGEXP_FILTER" value="false" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18d6792f-ffec-46ae-a3e2-c456c4212141" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/PersonalFavouriteActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/PersonalHistory.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/PersonalStore.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_personal_favourite.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_personal_history.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_personal_store.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/values-w820dp/dimens.xml" />
-      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\build\intermediates\classes\debug\com\itau\jingdong\home\BabyActivity$4.class" afterPath="" />
+    <list default="true" id="18d6792f-ffec-46ae-a3e2-c456c4212141" name="Default" comment="界面显示BUG修改，增加添加评论界面，添加商品时需要增写库存数量">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/adapter/Adapter_ListView_history.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/network/ConnNet.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/bean/Evaluation.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/task/ExDialog.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/bean/Favorite.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/bean/Good.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/json/JsonUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/Operaton.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/bean/Trade.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/bean/User.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/json/WriteJson.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/adapter_listview_history.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/gson_1_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/listview.xml" />
+      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\build\intermediates\classes\debug\com\itau\jingdong\adapter\MainPagerAdapter.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\build\intermediates\classes\debug\com\itau\jingdong\adapter\myViewPager.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\build\intermediates\classes\debug\com\itau\jingdong\bean\Configer.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\build\intermediates\classes\debug\com\itau\jingdong\home\BabyActivity$ViewPagerAdapter.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\build\intermediates\classes\debug\com\itau\jingdong\home\WareActivity$1.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\build\intermediates\classes\debug\com\itau\jingdong\home\WareActivity$WareTask$1.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\build\intermediates\classes\debug\com\itau\jingdong\home\WareActivity$WareTask$2.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\build\intermediates\classes\debug\com\itau\jingdong\home\WareActivity$WareTask.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\build\intermediates\classes\debug\com\itau\jingdong\home\WareActivity.class" afterPath="" />
       <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\build\intermediates\classes\debug\com\itau\jingdong\ui\CartActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\build\intermediates\classes\debug\com\itau\jingdong\ui\IndexClothingActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\build\intermediates\classes\debug\com\itau\jingdong\ui\IndexDigtalActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\build\intermediates\classes\debug\com\itau\jingdong\ui\IndexEbookActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\build\intermediates\classes\debug\com\itau\jingdong\ui\LoginActivity$4.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\build\intermediates\classes\debug\com\itau\jingdong\ui\LoginActivity$LoginTask.class" afterPath="" />
       <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\build\intermediates\classes\debug\com\itau\jingdong\ui\MainActivity$1.class" afterPath="" />
       <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\build\intermediates\classes\debug\com\itau\jingdong\ui\MainActivity$MainAdapter.class" afterPath="" />
       <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\build\intermediates\classes\debug\com\itau\jingdong\ui\MainActivity.class" afterPath="" />
       <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\build\intermediates\classes\debug\com\itau\jingdong\ui\ModelActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\build\intermediates\classes\debug\com\itau\jingdong\utils\HttpClient.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\build\intermediates\classes\debug\com\itau\jingdong\utils\NetworkUtils.class" afterPath="" />
       <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\build\intermediates\res\merged\debug\layout\activity_cart.xml" afterPath="" />
       <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\build\intermediates\res\merged\debug\layout\activity_clothes.xml" afterPath="" />
       <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\build\intermediates\res\merged\debug\layout\activity_digital.xml" afterPath="" />
       <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\build\intermediates\res\merged\debug\layout\activity_guide_index.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\build\intermediates\res\merged\debug\layout\activity_index_clothingcity.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\build\intermediates\res\merged\debug\layout\activity_index_digital.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\build\intermediates\res\merged\debug\layout\activity_index_ebooks.xml" afterPath="" />
       <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\build\intermediates\res\merged\debug\layout\adapter_grid_home.xml" afterPath="" />
       <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\build\intermediates\res\merged\debug\layout\adapter_grid_hot_home.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\src\main\java\com\itau\jingdong\ui\CartActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\src\main\java\com\itau\jingdong\ui\MainActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\src\main\java\com\itau\jingdong\ui\ModelActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\src\main\res\layout\activity_cart.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\src\main\res\layout\activity_clothes.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\src\main\res\layout\activity_digital.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\src\main\res\layout\activity_guide_index.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\src\main\res\layout\adapter_grid_home.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\src\main\res\layout\adapter_grid_hot_home.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\src\main\java\com\itau\jingdong\bean\Configer.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\src\main\java\com\itau\jingdong\home\WareActivity.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\src\main\java\com\itau\jingdong\ui\IndexClothingActivity.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\src\main\java\com\itau\jingdong\ui\IndexDigtalActivity.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\src\main\java\com\itau\jingdong\ui\IndexEbookActivity.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\src\main\java\com\itau\jingdong\utils\HttpClient.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\src\main\java\com\itau\jingdong\utils\NetworkUtils.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\src\main\res\layout\activity_index_clothingcity.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\src\main\res\layout\activity_index_digital.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\Android studio pro\Mystore\app\src\main\res\layout\activity_index_ebooks.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/adapter/Adapter_ListView_cart$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/adapter/Adapter_ListView_cart$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/adapter/Adapter_ListView_cart$HolderView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/adapter/Adapter_ListView_cart$HolderView.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/adapter/Adapter_ListView_cart.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/adapter/Adapter_ListView_cart.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/adapter/Adapter_ListView_detail$HolderView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/adapter/Adapter_ListView_detail$HolderView.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/adapter/Adapter_ListView_detail.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/adapter/Adapter_ListView_detail.class" />
@@ -56,9 +86,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/home/BabyActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/home/BabyActivity$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/home/BabyActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/home/BabyActivity$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/home/BabyActivity$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/home/BabyActivity$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/home/BabyActivity$ViewPagerAdapter.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/home/BabyActivity$ViewPagerAdapter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/home/BabyActivity$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/home/BabyActivity$4.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/home/BabyActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/home/BabyActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/MyView/BabyPopWindow.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/MyView/BabyPopWindow.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/base/BaseActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/base/BaseActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/zxing/CaptureActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/zxing/CaptureActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/zxing/CaptureResultActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/zxing/CaptureResultActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/cart/Cart_F.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/cart/Cart_F.class" />
@@ -76,19 +107,19 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/HomeActivity$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/HomeActivity$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/HomeActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/HomeActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/widgets/HomeSearchBarPopupWindow.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/widgets/HomeSearchBarPopupWindow.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/image/ImageLoaderConfig.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/image/ImageLoaderConfig.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/IndexActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/IndexActivity$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/IndexActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/IndexActivity$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/IndexActivity$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/IndexActivity$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/IndexActivity$MyAdapter.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/IndexActivity$MyAdapter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/IndexActivity$MyPageChangeListener.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/IndexActivity$MyPageChangeListener.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/IndexActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/IndexActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/IndexClothingActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/IndexClothingActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/IndexDaily.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/IndexDaily.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/IndexDigtalActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/IndexDigtalActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/IndexEbookActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/IndexEbookActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/IndexShakeActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/IndexShakeActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/widgets/jazzviewpager/JazzyViewPager.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/widgets/jazzviewpager/JazzyViewPager.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/LoginActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/LoginActivity$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/LoginActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/LoginActivity$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/LoginActivity$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/LoginActivity$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/LoginActivity$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/LoginActivity$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/LoginActivity$LoginTask.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/LoginActivity$LoginTask.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/LoginActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/LoginActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/cart/LowBaby_F.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/cart/LowBaby_F.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/MoreActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/MoreActivity.class" />
@@ -111,82 +142,92 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/R$styleable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/R$styleable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/R.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/R.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/RegisterBormalActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/RegisterBormalActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/SearchActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/SearchActivity$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/SearchActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/SearchActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/home/ShowBigPictrue.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/home/ShowBigPictrue.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/SplashActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/SplashActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/cart/StockBaby_F.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/ui/cart/StockBaby_F.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/zxing/view/ViewfinderView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/zxing/view/ViewfinderView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/home/WareActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/home/WareActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/home/WareActivity$WareTask$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/home/WareActivity$WareTask$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/home/WareActivity$WareTask$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/home/WareActivity$WareTask$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/home/WareActivity$WareTask.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/home/WareActivity$WareTask.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/home/WareActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/home/WareActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/xListview/XListView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/xListview/XListView.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/xListview/XListViewFooter.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/xListview/XListViewFooter.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/xListview/XListViewHeader.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/itau/jingdong/xListview/XListViewHeader.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug-unaligned.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-debug-unaligned.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-hdpi/buy_now.jpg" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-hdpi/buy_now.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/buy_now.jpg" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/buy_now.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/classes.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/debug/classes.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/cu_volley-1424e54aa60a956b228d7227b6549dc6aa01070e.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/cu_volley-1424e54aa60a956b228d7227b6549dc6aa01070e.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable/image01.jpg" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable/image01.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable/image02.jpg" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable/image02.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable/image03.jpg" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable/image03.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable/image04.jpg" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable/image04.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable/image05.jpg" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable/image05.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable/image06.jpg" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable/image06.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable/image07.jpg" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable/image07.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable/image08.jpg" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable/image08.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable/index_gallery_10.jpg" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable/index_gallery_10.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/nineoldandroids-e43bb43ed830e31e47276790860235caae8999a2.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/nineoldandroids-e43bb43ed830e31e47276790860235caae8999a2.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/outputFileStates.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-hdpi/put_in.jpg" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-hdpi/put_in.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/put_in.jpg" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/put_in.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug-androidTest.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug-androidTest.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/support-v4-18.0.0-5c13dae993a3a70564280b74f4a6300075997e8b.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/support-v4-18.0.0-5c13dae993a3a70564280b74f4a6300075997e8b.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/universal-image-loader-1.8.6-with-sources-af26affad157e82f55f8f56a87349010308d3c7f.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/universal-image-loader-1.8.6-with-sources-af26affad157e82f55f8f56a87349010308d3c7f.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/zxing-4bce031ea345e64cddb980d847ab19b8b2847d1c.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/debug/zxing-4bce031ea345e64cddb980d847ab19b8b2847d1c.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/adapter/Adapter_ListView_cart.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/adapter/Adapter_ListView_cart.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/adapter/Adapter_ListView_detail.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/adapter/Adapter_ListView_detail.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/adapter/Adapter_ListView_ware.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/adapter/Adapter_ListView_ware.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/cart/AllBaby_F.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/cart/AllBaby_F.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/home/BabyActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/home/BabyActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/BabyCommentActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/BabyCommentActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/MyView/BabyPopWindow.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/MyView/BabyPopWindow.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/cart/Cart_F.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/cart/Cart_F.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/CategoryActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/CategoryActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/HomeActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/HomeActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/IndexClothingActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/IndexClothingActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/IndexActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/IndexActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/IndexDaily.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/IndexDaily.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/IndexDigtalActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/IndexDigtalActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/IndexEbookActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/IndexEbookActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/LoginActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/PersonalActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/PersonalActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/PersonalFavouriteActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/PersonalFavouriteActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/PersonalHistory.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/PersonalHistory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/PersonalStore.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/PersonalStore.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/itau/jingdong/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/itau/jingdong/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/RegisterBormalActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/RegisterBormalActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/home/WareActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/home/WareActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/activity_index_clothingcity.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/activity_index_clothingcity.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_index_clothingcity.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_index_clothingcity.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/SearchActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/SearchActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/activity_index.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/activity_index.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/activity_index_daily.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/activity_index_daily.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_index_daily.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_index_daily.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/activity_index_digital.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/activity_index_digital.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_index_digital.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_index_digital.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/activity_index_ebooks.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/activity_index_ebooks.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_index_ebooks.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_index_ebooks.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/activity_login.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/activity_login.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/activity_more.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/activity_more.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_more.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_more.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/activity_personal.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/activity_personal.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_personal.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_personal.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_personal_store.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_personal_store.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/activity_register_normal.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/activity_register_normal.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_register_normal.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_register_normal.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/activity_search.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/activity_search.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_search.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_search.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/adapter_listview_cart.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/adapter_listview_cart.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/adapter_listview_cart.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/adapter_listview_cart.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/adapter_listview_detail.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/adapter_listview_detail.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/adapter_listview_detail.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/adapter_listview_detail.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/adapter_listview_ware.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/adapter_listview_ware.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/adapter_listview_ware.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/adapter_listview_ware.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/adapter_popwindow.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/adapter_popwindow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/adapter_popwindow.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/adapter_popwindow.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/babydetail_a.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/babydetail_a.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/babydetail_a.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/babydetail_a.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/cart_all_f.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/cart_all_f.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/cart_all_f.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/cart_all_f.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResourcesdebug/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResourcesdebug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Mystore.iws" />
@@ -215,21 +256,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="PersonalActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/PersonalActivity.java">
+      <file leaf-file-name="Operaton.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/Operaton.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="96" column="60" selection-start-line="96" selection-start-column="60" selection-end-line="96" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PersonalStore.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/PersonalStore.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="39" column="25" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
+            <state vertical-scroll-proportion="-4.071429">
+              <caret line="50" column="1" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -237,25 +268,42 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_register_normal.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_register_normal.xml">
+      <file leaf-file-name="BabyPopWindow.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/MyView/BabyPopWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.3666666">
-              <caret line="143" column="8" selection-start-line="143" selection-start-column="8" selection-end-line="143" selection-end-column="8" />
-              <folding />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="86" column="39" selection-start-line="86" selection-start-column="39" selection-end-line="86" selection-end-column="39" />
+              <folding>
+                <element signature="e#3994#4200#0" expanded="true" />
+                <element signature="e#4199#4200#0" expanded="true" />
+              </folding>
             </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RegisterBormalActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/RegisterBormalActivity.java">
+      <file leaf-file-name="BabyActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/home/BabyActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.586">
-              <caret line="56" column="63" selection-start-line="56" selection-start-column="63" selection-end-line="56" selection-end-column="63" />
-              <folding />
+            <state vertical-scroll-proportion="0.36348408">
+              <caret line="330" column="13" selection-start-line="330" selection-start-column="13" selection-end-line="330" selection-end-column="13" />
+              <folding>
+                <element signature="e#4627#4937#0" expanded="true" />
+                <element signature="e#4936#4937#0" expanded="true" />
+                <element signature="e#5093#5733#0" expanded="true" />
+                <element signature="e#5732#5733#0" expanded="true" />
+                <element signature="e#5754#5964#0" expanded="true" />
+                <element signature="e#5963#5964#0" expanded="true" />
+                <element signature="e#6330#6923#0" expanded="true" />
+                <element signature="e#6922#6923#0" expanded="true" />
+                <element signature="e#7442#7880#0" expanded="true" />
+                <element signature="e#7879#7880#0" expanded="true" />
+                <element signature="e#8042#8491#0" expanded="true" />
+                <element signature="e#8490#8491#0" expanded="true" />
+                <element signature="e#8512#8877#0" expanded="true" />
+                <element signature="e#8876#8877#0" expanded="true" />
+                <element signature="e#9937#10210#0" expanded="true" />
+                <element signature="e#10209#10210#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -266,6 +314,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="layoutResourceFile_vertical" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -1364,7 +1413,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="D:\Android studio pro\Mystore" value="4342711271677" />
+        <entry key="D:\Android studio pro\Mystore" value="4343725393726" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1547,6 +1596,8 @@
                             <option value="$MODULE_DIR$/libs/universal-image-loader-1.8.6-with-sources.jar" />
                             <option value="$MODULE_DIR$/libs/zxing.jar" />
                             <option value="$MODULE_DIR$/libs/cu_volley.jar" />
+                            <option value="$MODULE_DIR$/libs/gson-1.6.jar" />
+                            <option value="$MODULE_DIR$/libs/httpmime-4.1.3.jar" />
                           </list>
                         </option>
                         <option name="path" value="$PROJECT_DIR$/app" />
@@ -1685,54 +1736,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/cart/LowBaby_F.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/cart/StockBaby_F.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/cart_f_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/ware_a.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/top_menu_back.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/cart_f.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/top_menu_txt.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/cart/Cart_F.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/cart/AllBaby_F.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/adapter_popwindow.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/MyView/BabyPopWindow.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/babydetail_a.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/home/WareActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/xListview/XListView.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_index_daily.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_index_clothingcity.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_index_digital.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_index_ebooks.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/CategoryActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/HomeActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/adapter_listview_detail.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/adapter/Adapter_ListView_ware.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/IndexClothingActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/adapter_listview_ware.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/IndexDaily.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/IndexDigtalActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/IndexEbookActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/adapter/Adapter_ListView_detail.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/home/BabyActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/ModelActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_more.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/CartActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/PersonalFavouriteActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/cart_all_f.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/PersonalHistory.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_personal_favourite.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_personal_history.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/PersonalActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_personal.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_personal_store.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/PersonalStore.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_baby_comment.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_index_gallery_item.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_index.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/utils/HttpClient.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/json/JsonUtil.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/listview.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/task/ExDialog.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_register_normal.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_personal_store.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/bean/Favourite.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/bean/User.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/bean/Good.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/adapter_listview_cart.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/cart/AllBaby_F.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/json/WriteJson.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/cart/Cart_F.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_index_daily.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_search.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/HomeActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/IndexActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/bean/Favorite.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/babydetail_a.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/BabyCommentActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/bean/Evaluation.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/adapter_listview_history.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/bean/Trade.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/CategoryActivity.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/network/ConnNet.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/PersonalActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/PersonalStore.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/RegisterBormalActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/adapter/Adapter_ListView_ware.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/adapter/Adapter_ListView_cart.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/adapter/Adapter_ListView_history.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/SearchActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/PersonalFavouriteActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/PersonalHistory.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/IndexDaily.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/MyView/BabyPopWindow.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/Operaton.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/home/BabyActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/adapter/Adapter_ListView_detail.java" />
       </list>
     </option>
   </component>
@@ -1750,10 +1804,10 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1" />
-    <option name="y" value="2" />
-    <option name="width" value="1364" />
-    <option name="height" value="765" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="784" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -1778,6 +1832,9 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
+      <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1785,19 +1842,9 @@
               <option name="myItemId" value="Mystore" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Mystore" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+              <option name="myItemId" value="Gradle Scripts" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -1808,14 +1855,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -1890,16 +1929,65 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="manifests" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidManifestsGroupNode" />
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jingdong" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Mystore" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jingdong" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bean" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Mystore" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jingdong" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="adapter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="ProjectPane" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1914,6 +2002,17 @@
     <property name="OverrideImplement.overriding.sorted" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.itau.jingdong.adapter" />
+      <recent name="com.itau.jingdong.network" />
+      <recent name="com.itau.jingdong" />
+      <recent name="com.itau.jingdong.task" />
+      <recent name="com.itau.jingdong.bean" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Android studio pro\Mystore\app\src\main\res\layout" />
+      <recent name="D:\Android studio pro\Mystore\app\src\main\java\com\itau\jingdong" />
+    </key>
     <key name="android.template.packageName">
       <recent name="com.itau.jingdong.ui" />
     </key>
@@ -2116,41 +2215,105 @@
       <option name="number" value="Default" />
       <updated>1447649503313</updated>
     </task>
+    <task id="LOCAL-00001" summary="测试AS的GIT能否正常使用（无重要更新）">
+      <created>1447768177606</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1447768177606</updated>
+    </task>
+    <task id="LOCAL-00002" summary="测试AS的GIT能否正常使用（无重要更新）">
+      <created>1447769276232</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1447769276232</updated>
+    </task>
+    <task id="LOCAL-00003" summary="界面显示BUG修改，增加添加评论界面，添加商品时需要增写库存数量">
+      <created>1447816229405</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1447816229405</updated>
+    </task>
+    <task id="LOCAL-00004" summary="主页调整完成，如之前已经安装过，需自行到根目录清除图片缓存，否则显示有BUG">
+      <created>1447844854202</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1447844854202</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="2" width="1364" height="765" extended-state="0" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297546" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13344316" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12850082" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297546" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32526475" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.8051118" sideWeight="0.49546143" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290469" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32894737" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34984025" sideWeight="0.5045386" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24659607" sideWeight="0.5063898" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31948882" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32784185" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24659607" sideWeight="0.5063898" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3258786" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297546" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290469" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32894737" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24659607" sideWeight="0.49361023" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3258786" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42332268" sideWeight="0.4969743" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.64696485" sideWeight="0.49546143" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34984025" sideWeight="0.5045386" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31948882" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24659607" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32747602" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32526475" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42332268" sideWeight="0.4969743" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297546" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3258786" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297546" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -2163,6 +2326,15 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
+    <MESSAGE value="测试AS的GIT能否正常使用（无重要更新）" />
+    <MESSAGE value="界面显示BUG修改，增加添加评论界面，添加商品时需要增写库存数量" />
+    <MESSAGE value="主页调整完成，如之前已经安装过，需自行到根目录清除图片缓存，否则显示有BUG" />
+    <MESSAGE value="客户端调试前版本" />
+    <MESSAGE value="待测试" />
+    <option name="LAST_COMMIT_MESSAGE" value="待测试" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <option name="time" value="2" />
@@ -2170,409 +2342,238 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/IndexDigtalActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/cart/Cart_F.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.66329116">
-          <caret line="81" column="58" selection-start-line="81" selection-start-column="58" selection-end-line="81" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#3184#3436#0" expanded="false" />
-            <element signature="e#3435#3436#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="-0.43936732">
+          <caret line="50" column="5" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/IndexActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.048101265">
-          <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.3497364">
+          <caret line="137" column="23" selection-start-line="137" selection-start-column="23" selection-end-line="137" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/adapter_listview_detail.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2345679">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/IndexEbookActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_personal_history.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19240506">
-          <caret line="42" column="54" selection-start-line="42" selection-start-column="54" selection-end-line="42" selection-end-column="54" />
-          <folding>
-            <element signature="e#1127#1152#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.2962963">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="26" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_personal_favourite.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_search.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1340388">
+          <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/HomeActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.36731106">
+          <caret line="83" column="83" selection-start-line="83" selection-start-column="83" selection-end-line="83" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/bean/Favorite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28643215">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/cart/AllBaby_F.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.3869348">
+          <caret line="267" column="66" selection-start-line="267" selection-start-column="66" selection-end-line="267" selection-end-column="66" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/Data/Data.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.62531644">
+        <state vertical-scroll-proportion="0.0">
           <caret line="14" column="53" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
-          <folding>
-            <element signature="e#283#307#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/detail_show_1.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/detail_show_2.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/detail_show_3.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/MyView/MyListView.java">
+    <entry file="file://$PROJECT_DIR$/app/build/generated/source/r/debug/com/itau/jingdong/R.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.3497364">
+          <caret line="934" column="32" selection-start-line="934" selection-start-column="32" selection-end-line="934" selection-end-column="32" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/adapter/Adapter_ListView_detail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4587525">
-          <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
-          <folding>
-            <element signature="e#515#545#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/babydetail_a.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.04710921">
-          <caret line="113" column="52" selection-start-line="113" selection-start-column="52" selection-end-line="113" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/adapter_listview_detail.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/home/BabyActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="86" column="29" selection-start-line="86" selection-start-column="29" selection-end-line="86" selection-end-column="29" />
-          <folding>
-            <element signature="e#4839#5087#0" expanded="true" />
-            <element signature="e#5086#5087#0" expanded="true" />
-            <element signature="e#5355#5356#0" expanded="true" />
-            <element signature="e#5379#5380#0" expanded="true" />
-            <element signature="e#5687#5688#0" expanded="true" />
-            <element signature="e#5721#5722#0" expanded="true" />
-            <element signature="e#5794#5795#0" expanded="true" />
-            <element signature="e#5829#5830#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/adapter/Adapter_ListView_ware.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33199194">
-          <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
-          <folding>
-            <element signature="e#701#726#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/IndexClothingActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38229376">
-          <caret line="69" column="49" selection-start-line="69" selection-start-column="49" selection-end-line="69" selection-end-column="49" />
-          <folding>
-            <element signature="e#3460#3461#0" expanded="false" />
-            <element signature="e#3857#3858#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_more.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.0385437">
-          <caret line="73" column="27" selection-start-line="73" selection-start-column="27" selection-end-line="73" selection-end-column="27" />
-          <folding>
-            <element signature="e#3891#3913#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/MoreActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="41" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_index_clothingcity.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6356164">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_index_ebooks.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="27" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/HomeActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="57" column="50" selection-start-line="57" selection-start-column="50" selection-end-line="57" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/CategoryActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="72" selection-start-line="50" selection-start-column="72" selection-end-line="50" selection-end-column="72" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/PersonalFavouriteActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="111" column="0" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
-          <folding>
-            <element signature="e#2795#2805#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/IndexDaily.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="26" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
-          <folding>
-            <element signature="e#2453#2463#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/cart_low_f.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/details_title.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.45753425">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/exit_dialog_from_settings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/pic_item.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/scale_pic_item.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/home/ShowBigPictrue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25460637">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_baby_comment.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="32" column="24" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/adapter_popwindow.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/BabyCommentActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.09547739">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/adapter_listview_ware.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/adapter_listview_cart.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="43" column="28" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_index_gallery_item.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_index.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="55" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_category_item.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/cart_all_f.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67671233">
-          <caret line="61" column="25" selection-start-line="49" selection-start-column="12" selection-end-line="61" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/cart_f.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41643837">
-          <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_category.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.10410959">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="21" selection-end-column="19" />
-          <folding />
+        <state vertical-scroll-proportion="-13.3">
+          <caret line="93" column="34" selection-start-line="93" selection-start-column="34" selection-end-line="93" selection-end-column="34" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/cart_all_f.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4691358">
+          <caret line="56" column="45" selection-start-line="56" selection-start-column="45" selection-end-line="56" selection-end-column="45" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/cart/AllBaby_F.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/adapter_listview_history.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.866667">
+          <caret line="69" column="12" selection-start-line="69" selection-start-column="12" selection-end-line="69" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/bean/Trade.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.82747066">
+          <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/bean/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.04522613">
+          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/bean/Evaluation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Android/sdk/sources/android-17/java/net/HttpURLConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.46231157">
+          <caret line="263" column="7" selection-start-line="263" selection-start-column="7" selection-end-line="263" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/PersonalHistory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_personal_history.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7287671">
-          <caret line="20" column="46" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_index_daily.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_personal_favourite.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/cart/Cart_F.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.9717813">
           <caret line="29" column="17" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/AppManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7772194">
+          <caret line="97" column="1" selection-start-line="97" selection-start-column="1" selection-end-line="97" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -2585,10 +2586,180 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3516949">
-          <caret line="116" column="40" selection-start-line="116" selection-start-column="40" selection-end-line="116" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.8592965">
+          <caret line="27" column="44" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/IndexActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28643215">
+          <caret line="196" column="43" selection-start-line="196" selection-start-column="43" selection-end-line="196" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/CategoryActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/network/ConnNet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.25">
+          <caret line="29" column="35" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/RegisterBormalActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="138" column="53" selection-start-line="138" selection-start-column="53" selection-end-line="138" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="173" column="34" selection-start-line="173" selection-start-column="34" selection-end-line="173" selection-end-column="34" />
+          <folding>
+            <element signature="e#3909#4758#0" expanded="true" />
+            <element signature="e#4757#4758#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/PersonalActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="156" column="48" selection-start-line="156" selection-start-column="48" selection-end-line="156" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/PersonalStore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="136" column="34" selection-start-line="136" selection-start-column="34" selection-end-line="136" selection-end-column="34" />
+          <folding>
+            <element signature="e#3633#4994#0" expanded="false" />
+            <element signature="e#4993#4994#0" expanded="false" />
+            <element signature="e#5689#5690#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/adapter/Adapter_ListView_history.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.50921273">
+          <caret line="71" column="14" selection-start-line="71" selection-start-column="14" selection-end-line="71" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/adapter/Adapter_ListView_cart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35008374">
+          <caret line="69" column="14" selection-start-line="69" selection-start-column="14" selection-end-line="69" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/SearchActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7001675">
+          <caret line="138" column="67" selection-start-line="138" selection-start-column="67" selection-end-line="138" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/PersonalFavouriteActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.71356785">
+          <caret line="127" column="67" selection-start-line="127" selection-start-column="67" selection-end-line="127" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/PersonalHistory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47738692">
+          <caret line="122" column="67" selection-start-line="122" selection-start-column="67" selection-end-line="122" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/second_2.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/second_1.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/babydetail_a.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09876543">
+          <caret line="110" column="43" selection-start-line="110" selection-start-column="43" selection-end-line="110" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/Operaton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.071429">
+          <caret line="50" column="1" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/adapter/Adapter_ListView_ware.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3316583">
+          <caret line="41" column="80" selection-start-line="41" selection-start-column="80" selection-end-line="41" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/bean/Good.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5728643">
+          <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/IndexDaily.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6801406">
+          <caret line="129" column="52" selection-start-line="129" selection-start-column="52" selection-end-line="129" selection-end-column="52" />
+          <folding>
+            <element signature="e#3241#4082#0" expanded="true" />
+            <element signature="e#4081#4082#0" expanded="true" />
+            <element signature="e#4202#4445#0" expanded="true" />
+            <element signature="e#4444#4445#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/adapter/Adapter_ListView_detail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.60469013">
+          <caret line="37" column="83" selection-start-line="37" selection-start-column="83" selection-end-line="37" selection-end-column="83" />
           <folding />
         </state>
       </provider>
@@ -2596,88 +2767,36 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/MyView/BabyPopWindow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="179" column="55" selection-start-line="179" selection-start-column="55" selection-end-line="179" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_personal_store.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.1531916">
-          <caret line="38" column="17" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="37" column="27" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
+          <caret line="86" column="39" selection-start-line="86" selection-start-column="39" selection-end-line="86" selection-end-column="39" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#3994#4200#0" expanded="true" />
+            <element signature="e#4199#4200#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_personal.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/home/BabyActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.7595745">
-          <caret line="83" column="20" selection-start-line="83" selection-start-column="20" selection-end-line="83" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.73617023">
-          <caret line="115" column="24" selection-start-line="115" selection-start-column="24" selection-end-line="115" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/PersonalActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="96" column="60" selection-start-line="96" selection-start-column="60" selection-end-line="96" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_register_normal.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.3666666">
-          <caret line="143" column="8" selection-start-line="143" selection-start-column="8" selection-end-line="143" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/PersonalStore.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="25" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.36348408">
+          <caret line="330" column="13" selection-start-line="330" selection-start-column="13" selection-end-line="330" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#4627#4937#0" expanded="true" />
+            <element signature="e#4936#4937#0" expanded="true" />
+            <element signature="e#5093#5733#0" expanded="true" />
+            <element signature="e#5732#5733#0" expanded="true" />
+            <element signature="e#5754#5964#0" expanded="true" />
+            <element signature="e#5963#5964#0" expanded="true" />
+            <element signature="e#6330#6923#0" expanded="true" />
+            <element signature="e#6922#6923#0" expanded="true" />
+            <element signature="e#7442#7880#0" expanded="true" />
+            <element signature="e#7879#7880#0" expanded="true" />
+            <element signature="e#8042#8491#0" expanded="true" />
+            <element signature="e#8490#8491#0" expanded="true" />
+            <element signature="e#8512#8877#0" expanded="true" />
+            <element signature="e#8876#8877#0" expanded="true" />
+            <element signature="e#9937#10210#0" expanded="true" />
+            <element signature="e#10209#10210#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itau/jingdong/ui/RegisterBormalActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.586">
-          <caret line="56" column="63" selection-start-line="56" selection-start-column="63" selection-end-line="56" selection-end-column="63" />
-          <folding />
         </state>
       </provider>
     </entry>

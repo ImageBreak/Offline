@@ -1,6 +1,7 @@
 package com.itau.jingdong.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,21 +9,24 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.ImageLoader.ImageListener;
+import com.itau.jingdong.bean.Good;
 import com.itau.jingdong.http.CU_VolleyTool;
 import com.itau.jingdong.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class Adapter_ListView_ware extends BaseAdapter {
 	private Context context;
+	Bitmap bitmap;
 	@SuppressWarnings("unused")
-	private int[] data;
-	private ArrayList<HashMap<String, Object>> arrayList = new ArrayList<HashMap<String, Object>>();
+	private List<Good> arrayList = new ArrayList<Good>();
 
-	public Adapter_ListView_ware(Context context, ArrayList<HashMap<String, Object>> arrayList) {
+	public Adapter_ListView_ware(Context context, List<Good> arrayList) {
 
 		this.context = context;
 		this.arrayList = arrayList;
@@ -35,7 +39,7 @@ public class Adapter_ListView_ware extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		return (arrayList != null && arrayList.size() == 0) ? 30: arrayList.size();
+		return (arrayList != null && arrayList.size() != 0) ? arrayList.size():30;
 	}
 
 	@Override
@@ -64,11 +68,10 @@ public class Adapter_ListView_ware extends BaseAdapter {
 		if (arrayList.size() != 0) {
 
 			ImageListener listener = ImageLoader.getImageListener(holderView.iv_pic, R.drawable.ic_launcher, R.drawable.ic_launcher);
-			CU_VolleyTool.getInstance(context).getmImageLoader().get("http://192.168.0.111:3000/taoBao/img/" + arrayList.get(position).get("pic"), listener);
+			//CU_VolleyTool.getInstance(context).getmImageLoader().get(arrayList.get(position).getG_pic(), listener);
+			holderView.tv_name.setText(arrayList.get(position).getG_name().toString());
+			holderView.tv_price.setText("￥" + arrayList.get(position).getG_price().toString() + "元");
 
-			holderView.tv_name.setText(arrayList.get(position).get("name").toString());
-			holderView.tv_price.setText("￥" + arrayList.get(position).get("price").toString() + "元");
-			//holderView.tv_sale_num.setText("月销量:" + arrayList.get(position).get("sale_num").toString() + "件     " + arrayList.get(position).get("address").toString());
 		}
 		return currentView;
 	}
@@ -76,7 +79,6 @@ public class Adapter_ListView_ware extends BaseAdapter {
 	public class HolderView {
 
 		private ImageView iv_pic;
-		//private TextView tv_sale_num;
 		private TextView tv_name;
 		private TextView tv_price;
 
