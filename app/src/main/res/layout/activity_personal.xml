@@ -287,7 +287,32 @@
                                 android:src="@drawable/android_list_idex" />
                         </RelativeLayout>
 
-                    </LinearLayout> 
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/manager"
+                        style="@style/PersonalMainLayoutStyle" >
+
+                        <RelativeLayout
+
+                            style="@style/PersonalTopStyle" >
+
+                            <ImageView
+                                android:id="@+id/personal_icon_05"
+                                style="@style/PersonalIconStyle"
+                                android:src="@drawable/android_my_jd_collects" />
+
+                            <TextView
+                                style="@style/PersonalTextStyle"
+                                android:layout_toRightOf="@id/personal_icon_05"
+                                android:text="管理我的商品" />
+
+                            <ImageView
+                                style="@style/PersonalRightIconStyle"
+                                android:src="@drawable/android_list_idex" />
+                        </RelativeLayout>
+
+                    </LinearLayout>
 
                     <TextView
                         style="@style/PersonalCenterText"

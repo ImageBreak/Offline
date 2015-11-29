@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
@@ -20,6 +22,7 @@ import com.itau.jingdong.bean.Trade;
 import com.itau.jingdong.home.BabyActivity;
 import com.itau.jingdong.xListview.XListView;
 
+import java.io.ByteArrayOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -32,6 +35,7 @@ public class PersonalHistory extends Activity  implements XListView.IXListViewLi
     public List<Trade> trades = new ArrayList<Trade>();
     //显示所有商品的列表
     private XListView listView;
+    public Bitmap bitmap;
 
    // private int pageIndex = 0;
     /**存储网络返回的数据*/
@@ -87,6 +91,15 @@ public class PersonalHistory extends Activity  implements XListView.IXListViewLi
                 Gson gson = new Gson();
                 trades = gson.fromJson(temp, new TypeToken<List<Trade>>() {
                 }.getType());
+                for(int i = 0;i < trades.size();i++){
+                    bitmap = operaton.getHttpBitmap(trades.get(i).getG_pic(),2);
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();// outputstream
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                    byte[] appicon = baos.toByteArray();// 转为byte数组
+                    String tp = Base64.encodeToString(appicon, Base64.DEFAULT);
+                    trades.get(i).setG_pic(tp);
+                    System.out.println("转换成功！");
+                }
             }
             else
                 trades = null;

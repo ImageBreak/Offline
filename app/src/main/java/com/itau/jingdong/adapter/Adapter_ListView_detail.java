@@ -1,6 +1,11 @@
 package com.itau.jingdong.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.ImageLoader;
+import com.itau.jingdong.Operaton;
 import com.itau.jingdong.R;
 import com.itau.jingdong.bean.Evaluation;
 import com.itau.jingdong.http.CU_VolleyTool;
@@ -18,9 +24,11 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Adapter_ListView_detail extends BaseAdapter {
-private Context context;
-@SuppressWarnings("unused")
-private List<Evaluation> arrayList = new ArrayList<Evaluation>();
+	private Context context;
+	@SuppressWarnings("unused")
+	private List<Evaluation> arrayList = new ArrayList<Evaluation>();
+	private Bitmap bitmap;
+	private HolderView holderView=null;
 	
 	@SuppressWarnings("unchecked")
 	public Adapter_ListView_detail(Context context,List<Evaluation> arrayList){
@@ -49,8 +57,8 @@ private List<Evaluation> arrayList = new ArrayList<Evaluation>();
 	}
 
 	@Override
-	public View getView(int position, View currentView, ViewGroup arg2) {
-		HolderView holderView=null;
+	public View getView(final int position, View currentView, ViewGroup arg2) {
+
 		if (currentView==null) {
 			holderView=new HolderView();
 			currentView= LayoutInflater.from(context).inflate(R.layout.adapter_listview_detail, null);
@@ -62,9 +70,11 @@ private List<Evaluation> arrayList = new ArrayList<Evaluation>();
 		}else {
 			holderView=(HolderView) currentView.getTag();
 		}
-		if (arrayList != null && arrayList.size() != 0) {
-			ImageLoader.ImageListener listener = ImageLoader.getImageListener(holderView.iv_pic, R.drawable.ic_launcher, R.drawable.ic_launcher);
-			//CU_VolleyTool.getInstance(context).getmImageLoader().get(arrayList.get(position).getU_pic(), listener);
+		if (arrayList != null && arrayList.size() != 0  && !arrayList.get(position).getU_pic().equals("暂无图片")) {
+			byte[] bitmapArray;
+			bitmapArray = Base64.decode(arrayList.get(position).getU_pic(), Base64.DEFAULT);
+			bitmap = BitmapFactory.decodeByteArray(bitmapArray, 0, bitmapArray.length);
+			holderView.iv_pic.setImageBitmap(bitmap);
 			holderView.tv_name.setText(arrayList.get(position).getU_name());
 			holderView.tv_evalu.setText(arrayList.get(position).getE_text());
 			holderView.e_time.setText(arrayList.get(position).getE_time());
@@ -72,8 +82,7 @@ private List<Evaluation> arrayList = new ArrayList<Evaluation>();
 		
 		return currentView;
 	}
-	
-	
+
 	@SuppressWarnings("unused")
 	public class HolderView {
 		

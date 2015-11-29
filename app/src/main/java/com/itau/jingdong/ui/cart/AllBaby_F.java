@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -19,11 +20,18 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
 import com.itau.jingdong.Data.Data;
 import com.itau.jingdong.Operaton;
 import com.itau.jingdong.bean.Good;
@@ -36,10 +44,12 @@ import com.itau.jingdong.adapter.Adapter_ListView_cart.onCheckedChanged;
 import com.itau.jingdong.json.WriteJson;
 import com.itau.jingdong.mytools.IBtnCallListener;
 import com.itau.jingdong.ui.CategoryActivity;
+import com.itau.jingdong.zxing.CaptureActivity;
 
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
 
 /**
@@ -51,6 +61,7 @@ public class AllBaby_F extends Fragment implements IBtnCallListener, onCheckedCh
 
 	private TextView  tv_cart_Allprice, tv_cart_buy_Ordel;
 	private LinearLayout ll_cart;
+
 	private ListView listView_cart;
 	private CheckBox cb_cart_all;
 	private Adapter_ListView_cart adapter;
@@ -79,6 +90,7 @@ public class AllBaby_F extends Fragment implements IBtnCallListener, onCheckedCh
 		tv_cart_buy_Ordel = (TextView) view.findViewById(R.id.tv_cart_buy_or_del);
 		tv_cart_buy_Ordel.setText(str_del);
 		cb_cart_all = (CheckBox) view.findViewById(R.id.cb_cart_all);
+
 
 		cb_cart_all.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			@Override
@@ -225,48 +237,10 @@ public class AllBaby_F extends Fragment implements IBtnCallListener, onCheckedCh
 				is_choice=new boolean[Data.arrayList_cart.size()];
 				System.out.println("此时的长度---->"+is_choice.length);
 			}else {
-				//执行结算操作
-				if (Data.arrayList_cart.size()!=0) {
-					for (int i = is_choice_copy.length-1; i >=0; i--) {
-						if (is_choice_copy[i]) {
-							Trade trade = new Trade();
-							trade.setG_id(Integer.parseInt(Data.arrayList_cart.get(i).get("g_id").toString()));
-							trade.setU_name(Data.arrayList_cart.get(i).get("u_name").toString());
-							trade.setT_color(Data.arrayList_cart.get(i).get("color").toString());
-							trade.setT_type(Data.arrayList_cart.get(i).get("type").toString());
-							trade.setT_count(Integer.parseInt(Data.arrayList_cart.get(i).get("num").toString()));
-							WriteJson writeJson=new WriteJson();
-							jsonString= writeJson.getJsonData(trade);
-							System.out.println(jsonString);
-							new Thread(new Runnable() {
+				//执行扫码结算操作
+				Intent intent = new Intent(getActivity(), CaptureActivity.class);
+				startActivityForResult(intent, 2);
 
-								public void run() {
-									Operaton operaton = new Operaton();
-									//将trade对象写出json形式字符串
-									temp = operaton.UpData("addtrade.action", jsonString);
-									if(temp != null) {
-										Message msg = new Message();
-										try {
-											msg.obj = temp.getString("result").toString();
-										} catch (Exception e) {
-											throw new RuntimeException(e);
-										}
-										handler.sendMessage(msg);
-									}
-								}
-							}).start();
-							((CheckBox) (listView_cart.getChildAt(i)).findViewById(R.id.cb_choice)).setChecked(false);
-							Data.arrayList_cart.remove(i);
-							is_choice_copy=deleteByIndex(is_choice, i);
-						}
-					}
-				}
-				if (Data.arrayList_cart.size()==0) {
-					ll_cart.setVisibility(View.VISIBLE);
-				}
-				adapter.notifyDataSetChanged();
-				is_choice=new boolean[Data.arrayList_cart.size()];
-				System.out.println("此时的长度---->" + is_choice.length);
 			}
 			
 			break;
@@ -302,4 +276,55 @@ public class AllBaby_F extends Fragment implements IBtnCallListener, onCheckedCh
         return newArray;
     }
 
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, final Intent data) {
+		// TODO Auto-generated method stub
+
+		if(requestCode == 2 && resultCode==1){
+			System.out.println("得到了反馈");
+			boolean[] is_choice_copy=is_choice;
+			if (Data.arrayList_cart.size()!=0) {
+				for (int i = is_choice_copy.length-1; i >=0; i--) {
+					if (is_choice_copy[i]) {
+						Trade trade = new Trade();
+						trade.setG_id(Integer.parseInt(Data.arrayList_cart.get(i).get("g_id").toString()));
+						trade.setU_name(Data.arrayList_cart.get(i).get("u_name").toString());
+						trade.setT_color(Data.arrayList_cart.get(i).get("color").toString());
+						trade.setT_type(Data.arrayList_cart.get(i).get("type").toString());
+						trade.setT_count(Integer.parseInt(Data.arrayList_cart.get(i).get("num").toString()));
+						WriteJson writeJson=new WriteJson();
+						jsonString= writeJson.getJsonData(trade);
+						System.out.println(jsonString);
+						new Thread(new Runnable() {
+							public void run() {
+								Operaton operaton = new Operaton();
+								//将trade对象写出json形式字符串
+								temp = operaton.UpData(data.getExtras().getString("action"), jsonString);
+								if(temp != null) {
+									Message msg = new Message();
+									try {
+										msg.obj = temp.getString("result").toString();
+									} catch (Exception e) {
+										throw new RuntimeException(e);
+									}
+									handler.sendMessage(msg);
+								}
+							}
+						}).start();
+						((CheckBox) (listView_cart.getChildAt(i)).findViewById(R.id.cb_choice)).setChecked(false);
+						Data.arrayList_cart.remove(i);
+						is_choice_copy=deleteByIndex(is_choice, i);
+					}
+				}
+			}
+			if (Data.arrayList_cart.size()==0) {
+				ll_cart.setVisibility(View.VISIBLE);
+			}
+			adapter.notifyDataSetChanged();
+			is_choice=new boolean[Data.arrayList_cart.size()];
+			System.out.println("此时的长度---->" + is_choice.length);
+
+		}
+		super.onActivityResult(requestCode, resultCode, data);
+	}
 }

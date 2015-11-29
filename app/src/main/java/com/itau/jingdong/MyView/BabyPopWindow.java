@@ -5,10 +5,12 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Base64;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -86,22 +88,10 @@ public class BabyPopWindow implements OnDismissListener, OnClickListener {
 			g_amount = sp.getInt("g_amount", -1);
 			pop_price.setText(g_price);
 			pop_amount.setText(String.valueOf(g_amount));
-	/*		new Thread(new Runnable() {
-
-				public void run() {
-					//将trade对象写出json形式字符串
-					bitmap = operaton.getHttpBitmap(g_pic);
-					if(bitmap != null) {
-						Message msg = new Message();
-						try {
-							msg.obj = "1";
-						} catch (Exception e) {
-							throw new RuntimeException(e);
-						}
-						handler.sendMessage(msg);
-					}
-				}
-			}).start();*/
+			byte[] bitmapArray;
+			bitmapArray = Base64.decode(g_pic, Base64.DEFAULT);
+			bitmap = BitmapFactory.decodeByteArray(bitmapArray, 0, bitmapArray.length);
+			pic.setImageBitmap(bitmap);
 		}
 		popupWindow=new PopupWindow(view, LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 		//设置popwindow的动画效果
@@ -109,16 +99,7 @@ public class BabyPopWindow implements OnDismissListener, OnClickListener {
 		popupWindow.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 		popupWindow.setOnDismissListener(this);// 当popWindow消失时的监听
 	}
-	Handler handler=new Handler(){
-		@Override
-		public void handleMessage(Message msg) {
-			String msgobj=msg.obj.toString();
-			if(msgobj.equals("1")){
-				pic.setImageBitmap(bitmap);
-			}
-			super.handleMessage(msg);
-		}
-	};
+
 	
 	public interface OnItemClickListener{
 		/** 设置点击确认按钮时监听接口 */

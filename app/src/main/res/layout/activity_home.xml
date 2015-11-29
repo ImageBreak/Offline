@@ -16,6 +16,7 @@
             android:layout_weight="1.0"
             android:background="@drawable/android_layout_bg" />
 
+
         <TabWidget
             android:id="@android:id/tabs"
             android:layout_width="match_parent"

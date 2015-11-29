@@ -17,29 +17,20 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.itau.jingdong.Operaton;
-import com.itau.jingdong.bean.Good;
-import com.itau.jingdong.home.BabyActivity;
-import com.itau.jingdong.http.CU_JSONResolve;
-import com.itau.jingdong.http.GetHttp;
 import com.itau.jingdong.R;
 import com.itau.jingdong.adapter.Adapter_ListView_ware;
+import com.itau.jingdong.bean.Good;
+import com.itau.jingdong.home.BabyActivity;
 import com.itau.jingdong.xListview.XListView;
 import com.itau.jingdong.xListview.XListView.IXListViewListener;
 
-import org.json.JSONObject;
-
 import java.io.ByteArrayOutputStream;
-import java.lang.reflect.TypeVariable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
-public class PersonalFavouriteActivity extends Activity implements  IXListViewListener {
+public class PersonalRecommend extends Activity implements  IXListViewListener {
 
     private String jsonString=null;
     public String temp;
@@ -48,17 +39,12 @@ public class PersonalFavouriteActivity extends Activity implements  IXListViewLi
     private XListView listView;
     public Bitmap bitmap;
 
-    //private int pageIndex = 0;
-    /**存储网络返回的数据*/
-   // private HashMap<String, Object> hashMap;
-    /**存储网络返回的数据中的data字段*/
-   // private ArrayList<HashMap<String, Object>> arrayList = new ArrayList<HashMap<String, Object>>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_personal_favourite);
+        setContentView(R.layout.activity_personal_recommend);
         initView();
         //请求网络数据
         new WareTask().execute();
@@ -80,7 +66,7 @@ public class PersonalFavouriteActivity extends Activity implements  IXListViewLi
         @Override
         protected void onPreExecute() {
             if (dialog==null) {
-                dialog= ProgressDialog.show(PersonalFavouriteActivity.this, "", "正在加载...");
+                dialog= ProgressDialog.show(PersonalRecommend.this, "", "正在加载...");
                 dialog.show();
             }
         }
@@ -93,7 +79,7 @@ public class PersonalFavouriteActivity extends Activity implements  IXListViewLi
             System.out.println(jsonString);
             Operaton operaton = new Operaton();
             //将trade对象写出json形式字符串
-            temp = operaton.GetData("favoritelist.action", jsonString);
+            temp = operaton.GetData("recommend.action", jsonString);
             if(temp != null) {
                 Gson gson = new Gson();
                 good = gson.fromJson(temp, new TypeToken<List<Good>>() {}.getType());
@@ -123,7 +109,7 @@ public class PersonalFavouriteActivity extends Activity implements  IXListViewLi
 
             //如果网络数据请求失败，那么显示默认的数据
             if (result != null) {
-                listView.setAdapter(new Adapter_ListView_ware(PersonalFavouriteActivity.this, result));
+                listView.setAdapter(new Adapter_ListView_ware(PersonalRecommend.this, result));
                 listView.setOnItemClickListener(new OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
@@ -140,17 +126,17 @@ public class PersonalFavouriteActivity extends Activity implements  IXListViewLi
                         ed.remove("g_amount");
                         ed.putInt("g_amount", result.get(position-1).getG_amount());
                         ed.commit();
-                        Intent intent = new Intent(PersonalFavouriteActivity.this, BabyActivity.class);
+                        Intent intent = new Intent(PersonalRecommend.this, BabyActivity.class);
                         startActivity(intent);
                     }
                 });
 
             }else {
-                listView.setAdapter(new Adapter_ListView_ware(PersonalFavouriteActivity.this));
+                listView.setAdapter(new Adapter_ListView_ware(PersonalRecommend.this));
                 listView.setOnItemClickListener(new OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-                        Intent intent = new Intent(PersonalFavouriteActivity.this, BabyActivity.class);
+                        Intent intent = new Intent(PersonalRecommend.this, BabyActivity.class);
                         startActivity(intent);
                     }
                 });

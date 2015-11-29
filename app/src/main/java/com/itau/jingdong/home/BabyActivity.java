@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
@@ -18,6 +19,7 @@ import android.os.Message;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -48,6 +50,7 @@ import com.itau.jingdong.ui.BabyCommentActivity;
 
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,8 +62,6 @@ public class BabyActivity extends FragmentActivity implements OnItemClickListene
 
 	NfcAdapter nfcAdapter;
 
-	private HackyViewPager viewPager;
-	private ArrayList<View> allListView;
 	private ListView listView;
 	private ImageView iv_baby_collection,iv_baby;
 	/**弹出商品订单信息详情*/
@@ -72,13 +73,13 @@ public class BabyActivity extends FragmentActivity implements OnItemClickListene
 	/**ViewPager当前显示页的下标*/
 	private int position=0;
 	
-	public  String u_name,jsonString = null,temp1,g_pic,g_name,g_price;
+	public  String u_name,jsonString = null,temp1 = null,g_pic,g_name,g_price;
 	public  int g_id;
 	private Operaton operaton = new Operaton();
 	public JSONObject temp;
 	private TextView iv_baby_des,iv_baby_price;
 	public List<Evaluation> eva = new ArrayList<Evaluation>();
-	Bitmap bitmap;
+	private Bitmap bitmap;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -115,31 +116,18 @@ public class BabyActivity extends FragmentActivity implements OnItemClickListene
 		iv_baby_des = (TextView)findViewById(R.id.iv_baby_des);
 		iv_baby_price = (TextView)findViewById(R.id.iv_baby_price);
 		iv_baby = (ImageView)findViewById(R.id.iv_baby);
-		/**以下为商品评论相关，目前只是默认填充*/
+		/**以下为商品评论相关*/
 		SharedPreferences sp = getSharedPreferences("info", MODE_PRIVATE);
 		if(g_id != -1){
-			System.out.println(g_id);
 			g_pic = sp.getString("g_pic","");
 			g_name = sp.getString("g_name","");
 			g_price = sp.getString("g_price","");
 			iv_baby_des.setText(g_name);
 			iv_baby_price.setText("￥" + g_price + "元");
-		/*	new Thread(new Runnable() {
-
-				public void run() {
-					//将trade对象写出json形式字符串
-					bitmap = operaton.getHttpBitmap(g_pic);
-					if(bitmap != null) {
-						Message msg = new Message();
-						try {
-							msg.obj = "1";
-						} catch (Exception e) {
-							throw new RuntimeException(e);
-						}
-						handler5.sendMessage(msg);
-					}
-				}
-			}).start();*/
+			byte[] bitmapArray;
+			bitmapArray = Base64.decode(g_pic, Base64.DEFAULT);
+			bitmap = BitmapFactory.decodeByteArray(bitmapArray, 0, bitmapArray.length);
+			iv_baby.setImageBitmap(bitmap);
 		}
 		jsonString= "{\"g_id\":"+g_id+"}";
 		System.out.println(jsonString);
@@ -149,8 +137,21 @@ public class BabyActivity extends FragmentActivity implements OnItemClickListene
 				//将trade对象写出json形式字符串
 				temp1 = operaton.GetData("evaluationlist.action", jsonString);
 				Message msg = new Message();
+				//System.out.println(temp1.length() +"  temp1");
 				if(temp1 != null) {
-					msg.obj = "1";
+					System.out.println("访问评价列表啦");
+					Gson gson = new Gson();;
+					eva = gson.fromJson(temp1, new TypeToken<List<Evaluation>>() {}.getType());
+					for(int i = 0;i < eva.size();i++){
+						bitmap = operaton.getHttpBitmap(eva.get(i).getU_pic(),1);
+						ByteArrayOutputStream baos = new ByteArrayOutputStream();// outputstream
+						bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+						byte[] appicon = baos.toByteArray();// 转为byte数组
+						String tp = Base64.encodeToString(appicon, Base64.DEFAULT);
+						eva.get(i).setU_pic(tp);
+						System.out.println("转换成功！");
+						msg.obj = "1";
+					}
 				}
 				else if(temp1 == null){
 					msg.obj = "0";
@@ -170,11 +171,9 @@ public class BabyActivity extends FragmentActivity implements OnItemClickListene
 		public void handleMessage(Message msg) {
 			String msgobj=msg.obj.toString();
 			if(msgobj.equals("1")){
-				Gson gson = new Gson();
 				listView = (ListView) findViewById(R.id.listView_Detail);
 				listView.setFocusable(false);
 				listView.setSelector(new ColorDrawable(Color.TRANSPARENT));
-				eva = gson.fromJson(temp1, new TypeToken<List<Evaluation>>() {}.getType());
 				listView.setAdapter(new Adapter_ListView_detail(BabyActivity.this, eva));
 			}
 			else if(msgobj.equals("0")){
@@ -185,16 +184,6 @@ public class BabyActivity extends FragmentActivity implements OnItemClickListene
 		}
 	};
 
-	Handler handler5=new Handler(){
-		@Override
-		public void handleMessage(Message msg) {
-			String msgobj=msg.obj.toString();
-			if(msgobj.equals("1")){
-				iv_baby.setImageBitmap(bitmap);
-			}
-			super.handleMessage(msg);
-		}
-	};
 	@Override
 	public void onClick(View view) {
 		switch (view.getId()) {
@@ -254,7 +243,7 @@ public class BabyActivity extends FragmentActivity implements OnItemClickListene
 				new Thread(new Runnable() {
 
 					public void run() {
-						Operaton operaton = new Operaton();
+						operaton = new Operaton();
 						//将trade对象写出json形式字符串
 						temp = operaton.UpData("checktrade.action", jsonString);
 						if(temp != null) {

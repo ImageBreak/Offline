@@ -5,12 +5,17 @@ import java.io.IOException;
 import java.util.Vector;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
@@ -27,6 +32,8 @@ import android.widget.Toast;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import com.itau.jingdong.R;
+import com.itau.jingdong.ui.cart.AllBaby_F;
+import com.itau.jingdong.ui.cart.Cart_F;
 import com.itau.jingdong.zxing.camera.CameraManager;
 import com.itau.jingdong.zxing.decoding.CaptureActivityHandler;
 import com.itau.jingdong.zxing.decoding.InactivityTimer;
@@ -37,7 +44,7 @@ import com.itau.jingdong.zxing.view.ViewfinderView;
  * 
  * @ClassName: CaptureActivity
  * @Description: TODO
- * @author xiangzhihong
+ *
  */
 public class CaptureActivity extends Activity implements Callback {
 
@@ -121,28 +128,54 @@ public class CaptureActivity extends Activity implements Callback {
         super.onDestroy();
     }
 
-    /**
-     * @param result
-     * @param barcode
-     */
-    public void handleDecode(Result result, Bitmap barcode) {
+    public void handleDecode(final Result obj, Bitmap barcode) {
         inactivityTimer.onActivity();
         playBeepSoundAndVibrate();
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        if (barcode == null)
+        {
+            dialog.setIcon(null);
+        }
+        else
+        {
 
-        String resultString = result.getText();
-		if (resultString.equals("")) {
-			Toast.makeText(CaptureActivity.this, "Scan failed,Please have a try!", Toast.LENGTH_SHORT).show();
-		}else {
-			Intent resultIntent = new Intent(CaptureActivity.this,CaptureResultActivity.class);
-			Bundle bundle = new Bundle();
-			bundle.putString("result", resultString);
-			bundle.putParcelable("bitmap", barcode);
-			resultIntent.putExtras(bundle);
-			//this.setResult(RESULT_OK, resultIntent); 
-			
-			startActivity(resultIntent);
-		}
-		CaptureActivity.this.finish();
+            Drawable drawable = new BitmapDrawable(barcode);
+            dialog.setIcon(drawable);
+        }
+        dialog.setTitle("扫描结果");
+        dialog.setMessage(obj.getText());
+        dialog.setNegativeButton("确定", new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                if(!obj.getText().equals("addtrade.action")) {
+                    //用默认浏览器打开扫描得到的地址
+                    Intent intent = new Intent();
+                    intent.setAction("android.intent.action.VIEW");
+                    Uri content_url = Uri.parse(obj.getText());
+                    intent.setData(content_url);
+                    startActivity(intent);
+                    CaptureActivity.this.finish();
+                }
+                else if(obj.getText().equals("addtrade.action")){
+                    System.out.println("执行结算操作");
+                    Intent data = new Intent();
+                    data.putExtra("action", obj.getText());
+                    setResult(1,data);
+                    CaptureActivity.this.finish();
+                }
+            }
+        });
+        dialog.setPositiveButton("取消", new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                finish();
+            }
+        });
+        dialog.create().show();
     }
 
     private void initCamera(SurfaceHolder surfaceHolder) {

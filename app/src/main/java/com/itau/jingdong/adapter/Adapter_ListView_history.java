@@ -1,6 +1,11 @@
 package com.itau.jingdong.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.ImageLoader;
+import com.itau.jingdong.Operaton;
 import com.itau.jingdong.R;
 import com.itau.jingdong.bean.Evaluation;
 import com.itau.jingdong.bean.Trade;
@@ -24,6 +30,8 @@ import java.util.List;
 public class Adapter_ListView_history extends BaseAdapter {
 	private Context context;
 	private List<Trade> arrayList = new ArrayList<Trade>();
+	private Bitmap bitmap;
+	private HolderView holderView=null;
 
 	public Adapter_ListView_history(Context context, List<Trade> arrayList) {
 
@@ -67,9 +75,11 @@ public class Adapter_ListView_history extends BaseAdapter {
 		} else {
 			holderView = (HolderView) currentView.getTag();
 		}
-		if (arrayList.size() != 0) {
-			ImageLoader.ImageListener listener1 = ImageLoader.getImageListener(holderView.iv_pic, R.drawable.ic_launcher, R.drawable.ic_launcher);
-			//CU_VolleyTool.getInstance(context).getmImageLoader().get(arrayList.get(position).getG_pic(), listener1);
+		if (arrayList.size() != 0  && !arrayList.get(position).getG_pic().equals("暂无图片")) {
+			byte[] bitmapArray;
+			bitmapArray = Base64.decode(arrayList.get(position).getG_pic(), Base64.DEFAULT);
+			bitmap = BitmapFactory.decodeByteArray(bitmapArray, 0, bitmapArray.length);
+			holderView.iv_pic.setImageBitmap(bitmap);
 			holderView.tv_num.setText("x" + arrayList.get(position).getT_count());
 			holderView.tv_type_color.setText("类型:" + arrayList.get(position).getT_type() + "    颜色:" + arrayList.get(position).getT_color());
 			holderView.tv_name.setText(arrayList.get(position).getG_name());

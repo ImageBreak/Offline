@@ -163,12 +163,12 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 			if(result.equals("1")) {
 				ed = sp.edit();
 				ed.putString("u_name", u_name);
-		/*		try {
+				try {
 					ed.putString("u_pic", temp.getString("u_pic").toString());
 				}
 				catch (Exception e){
 					throw new RuntimeException(e);
-				}*/
+				}
 				ed.commit();
 				mIntent = new Intent();
 				mIntent.putExtra("name", u_name);

@@ -2,10 +2,12 @@ package com.itau.jingdong.ui;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
@@ -22,6 +24,7 @@ import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.Gallery;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -31,6 +34,11 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
 import com.itau.jingdong.R;
 import com.itau.jingdong.adapter.IndexGalleryAdapter;
 import com.itau.jingdong.entity.IndexGalleryItemData;
@@ -85,6 +93,10 @@ public class IndexActivity extends BaseActivity implements OnClickListener,
 	private ImageButton tuijian,phoneFee,tuangou,caipiao,huoche,history,favourite;
 	private LinearLayout mTopLayout = null;
 
+	private FrameLayout code;
+	private ImageView code_pic;
+	private static int QR_WIDTH = 400,QR_HEIGHT = 400;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -136,6 +148,9 @@ public class IndexActivity extends BaseActivity implements OnClickListener,
 		huoche=(ImageButton)findViewById(R.id.index_order_btn);
 		history=(ImageButton)findViewById(R.id.index_history_btn);
 		favourite=(ImageButton)findViewById(R.id.index_collect_btn);
+
+		code = (FrameLayout) findViewById(R.id.code);
+		code_pic = (ImageView) findViewById(R.id.code_pic);
 		//添加事件
 		shake.setOnClickListener(indexClickListener);
 		tuijian.setOnClickListener(indexClickListener);
@@ -156,7 +171,12 @@ public class IndexActivity extends BaseActivity implements OnClickListener,
 			String u_name = sp.getString("u_name","");
 			switch (v.getId()) {
 				case R.id.index_promotion_btn:
-					Toast.makeText(IndexActivity.this, "暂未开发233", Toast.LENGTH_SHORT).show();
+					if(u_name.equals(""))
+						Toast.makeText(IndexActivity.this, "尚未登陆", Toast.LENGTH_SHORT).show();
+					else {
+						mIntent = new Intent(IndexActivity.this, PersonalRecommend.class);
+						startActivity(mIntent);
+					}
 					break;
 
 				case R.id.index_recharge_btn:
@@ -508,6 +528,54 @@ public class IndexActivity extends BaseActivity implements OnClickListener,
 	@Override
 	public void onColorButtonClick() {
 		// TODO Auto-generated method stub
-		CommonTools.showShortToast(this, "二维码");
+		//CommonTools.showShortToast(this, "二维码");
+		if(!code.isShown()) {
+			code.setVisibility(View.VISIBLE);
+			createQRImage("addtrade.action");
+		}
+		else if(code.isShown())
+			code.setVisibility(View.GONE);
+	}
+
+	public void createQRImage(String url)
+	{
+		try
+		{
+			//判断URL合法性
+			if (url == null || "".equals(url) || url.length() < 1)
+			{
+				return;
+			}
+			Hashtable<EncodeHintType, String> hints = new Hashtable<EncodeHintType, String>();
+			hints.put(EncodeHintType.CHARACTER_SET, "utf-8");
+			//图像数据转换，使用了矩阵转换
+			BitMatrix bitMatrix = new QRCodeWriter().encode(url, BarcodeFormat.QR_CODE, QR_WIDTH, QR_HEIGHT, hints);
+			int[] pixels = new int[QR_WIDTH * QR_HEIGHT];
+			//下面这里按照二维码的算法，逐个生成二维码的图片，
+			//两个for循环是图片横列扫描的结果
+			for (int y = 0; y < QR_HEIGHT; y++)
+			{
+				for (int x = 0; x < QR_WIDTH; x++)
+				{
+					if (bitMatrix.get(x, y))
+					{
+						pixels[y * QR_WIDTH + x] = 0xff000000;
+					}
+					else
+					{
+						pixels[y * QR_WIDTH + x] = 0xffffffff;
+					}
+				}
+			}
+			//生成二维码图片的格式，使用ARGB_8888
+			Bitmap bitmap = Bitmap.createBitmap(QR_WIDTH, QR_HEIGHT, Bitmap.Config.ARGB_8888);
+			bitmap.setPixels(pixels, 0, QR_WIDTH, 0, 0, QR_WIDTH, QR_HEIGHT);
+			//显示到一个ImageView上面
+			code_pic.setImageBitmap(bitmap);
+		}
+		catch (WriterException e)
+		{
+			e.printStackTrace();
+		}
 	}
 }

@@ -28,6 +28,10 @@ public class Evaluation {
         return u_pic;
     }
 
+    public void setU_pic(String u_pic) {
+        this.u_pic = u_pic;
+    }
+
     public Evaluation(int goodid,String name,String text){
         this.g_id = goodid;
         this.u_name = name;
@@ -37,4 +41,7 @@ public class Evaluation {
         this.e_time = time;
     }
 
+    public Evaluation(){
+
+    }
 }

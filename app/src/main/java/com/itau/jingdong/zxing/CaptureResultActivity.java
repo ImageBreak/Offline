@@ -26,12 +26,6 @@ import android.widget.Toast;
 
 import com.itau.jingdong.R;
 
-/** 
- * @author xiang
-    E-mail: xiangzhihong8@sina.com
- * 创建时间：2013-9-5 下午4:35:55 
- * 类说明 
- */
 
 public class CaptureResultActivity extends Activity implements OnClickListener {
 
@@ -178,10 +172,10 @@ public class CaptureResultActivity extends Activity implements OnClickListener {
 		super.onActivityResult(requestCode, resultCode, data);
 		
 		if (resultCode == Activity.RESULT_OK){
+			System.out.println("扫码结果来了");
 			String sdStatus=Environment.getExternalStorageState();
 			if (!sdStatus.equals(Environment.MEDIA_MOUNTED)) { // 检测sd是否可用
-                Log.v("TestFile",
-                        "SD card is not avaiable/writeable right now.");
+                Log.v("TestFile", "SD card is not avaiable/writeable right now.");
                 return;
             }
 			
@@ -208,7 +202,7 @@ public class CaptureResultActivity extends Activity implements OnClickListener {
 		   fileoutputStream=new FileOutputStream(file);
 			bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileoutputStream);// 把数据写入文件
 			
-			Toast.makeText(CaptureResultActivity.this, "图片已成功保存", 1500).show();
+			Toast.makeText(CaptureResultActivity.this, "图片已成功保存", Toast.LENGTH_SHORT).show();
 			fileoutputStream.flush();
 			fileoutputStream.close();
 			} catch (Exception e) {

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    >
 
     <LinearLayout
         android:id="@+id/index_top_layout"
@@ -44,21 +45,37 @@
             android:src="@drawable/android_search_button_icon" />
     </LinearLayout>
 
-    <com.itau.jingdong.widgets.AbScrollView
+    <FrameLayout
+        android:id="@+id/code"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/index_top_layout"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/code_pic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/splash_logo"/>
+
+    </FrameLayout>
+    <com.itau.jingdong.widgets.AbScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/code"
         android:background="@drawable/home_panicbuying_background"
         android:fadingEdge="none"
         android:fadingEdgeLength="0dp"
         android:overScrollMode="never"
-        android:scrollbars="none" >
+        android:scrollbars="none"
+        android:visibility="visible">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <com.itau.jingdong.widgets.jazzviewpager.JazzyViewPager
                 android:id="@+id/index_product_images_container"

@@ -33,6 +33,7 @@ public class ConnNet
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		System.out.println(finalurl);
 		return connection;
 
 	}

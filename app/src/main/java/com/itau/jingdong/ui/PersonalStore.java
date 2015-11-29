@@ -105,13 +105,22 @@ public class PersonalStore extends Activity implements OnClickListener {
                     public void run() {
 
                         Operaton operaton=new Operaton();
+                        Message msg = new Message();
                         if(filepath != null) {
-                            File file = new File(filepath);
+                            if(filepath != null) {
+                                try {
+                                    temp = operaton.addpic(filepath, "upload", 2);
+                                    if (temp != null && temp.getString("result").toString().equals("1"))
+                                        g_pic = temp.getString("imagepath").toString();
+                                    else
+                                        msg.obj = "-1";
+                                } catch (Exception e) {
+                                    throw new RuntimeException(e);
+                                }
+                            }
                         }
-                        //g_pic=operaton.uploadFile(file,"goodimage", 2);
                         //先进行图片上传的操作，然后服务器返回图片保存在服务器的路径，
-                        //System.out.println("photo---->"+photo);
-                        Good good=new Good(g_name, g_price, "暂无图片", g_amount, g_type,u_name);
+                        Good good=new Good(g_name, g_price, g_pic, g_amount, g_type,u_name);
                         //构造一个user对象
                         WriteJson writeJson=new WriteJson();
                         //将user对象写出json形式字符串
@@ -119,7 +128,7 @@ public class PersonalStore extends Activity implements OnClickListener {
                         System.out.println(jsonString);
                         temp = operaton.UpData("addgood.action", jsonString);
                         if(temp != null) {
-                            Message msg = new Message();
+
                             try {
                                 msg.obj = temp.getString("result").toString();
                             } catch (Exception e) {
@@ -145,9 +154,11 @@ public class PersonalStore extends Activity implements OnClickListener {
                 Toast.makeText(PersonalStore.this, "提交成功", Toast.LENGTH_SHORT).show();
                 PersonalStore.this.finish();
             }
-            else {
+            else if(msgobj.equals("0")){
                 Toast.makeText(PersonalStore.this, "提交失败", Toast.LENGTH_SHORT).show();
             }
+            else if(msgobj.equals("-1"))
+                Toast.makeText(PersonalStore.this, "图片上传失败", Toast.LENGTH_SHORT).show();
             super.handleMessage(msg);
         }
     };

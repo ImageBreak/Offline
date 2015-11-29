@@ -55,6 +55,10 @@ public class Trade {
         return g_amount;
     }
 
+    public void setG_pic(String g_pic) {
+        this.g_pic = g_pic;
+    }
+
     public void setU_name(String u_name) {
         this.u_name = u_name;
     }

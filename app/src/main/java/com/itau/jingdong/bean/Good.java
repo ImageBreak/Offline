@@ -15,6 +15,10 @@ public class Good {
         this.g_id = g_id;
     }
 
+    public void setG_pic(String g_pic) {
+        this.g_pic = g_pic;
+    }
+
     public Good(String goodname,String goodprice, String goodphoto, int goodamount, String goodtype,String name) {
         this.g_name = goodname;
         this.g_price = goodprice;

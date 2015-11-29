@@ -2,6 +2,10 @@ package com.itau.jingdong.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +16,7 @@ import android.widget.TextView;
 
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.ImageLoader.ImageListener;
+import com.itau.jingdong.Operaton;
 import com.itau.jingdong.bean.Good;
 import com.itau.jingdong.http.CU_VolleyTool;
 import com.itau.jingdong.R;
@@ -22,10 +27,10 @@ import java.util.List;
 
 public class Adapter_ListView_ware extends BaseAdapter {
 	private Context context;
-	Bitmap bitmap;
 	@SuppressWarnings("unused")
 	private List<Good> arrayList = new ArrayList<Good>();
-
+	private Bitmap bitmap;
+	private HolderView holderView=null;
 	public Adapter_ListView_ware(Context context, List<Good> arrayList) {
 
 		this.context = context;
@@ -39,7 +44,7 @@ public class Adapter_ListView_ware extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		return (arrayList != null && arrayList.size() != 0) ? arrayList.size():30;
+		return (arrayList != null && arrayList.size() != 0) ? arrayList.size():0;
 	}
 
 	@Override
@@ -53,8 +58,7 @@ public class Adapter_ListView_ware extends BaseAdapter {
 	}
 
 	@Override
-	public View getView(int position, View currentView, ViewGroup arg2) {
-		HolderView holderView = null;
+	public View getView(final int position, View currentView, ViewGroup arg2) {
 		if (currentView == null) {
 			holderView = new HolderView();
 			currentView = LayoutInflater.from(context).inflate(R.layout.adapter_listview_ware, null);
@@ -65,16 +69,18 @@ public class Adapter_ListView_ware extends BaseAdapter {
 		} else {
 			holderView = (HolderView) currentView.getTag();
 		}
-		if (arrayList.size() != 0) {
-
-			ImageListener listener = ImageLoader.getImageListener(holderView.iv_pic, R.drawable.ic_launcher, R.drawable.ic_launcher);
-			//CU_VolleyTool.getInstance(context).getmImageLoader().get(arrayList.get(position).getG_pic(), listener);
-			holderView.tv_name.setText(arrayList.get(position).getG_name().toString());
-			holderView.tv_price.setText("￥" + arrayList.get(position).getG_price().toString() + "元");
+		if (arrayList.size() != 0 && !arrayList.get(position).getG_pic().equals("暂无图片")) {
+			byte[] bitmapArray;
+			bitmapArray = Base64.decode(arrayList.get(position).getG_pic(), Base64.DEFAULT);
+			bitmap = BitmapFactory.decodeByteArray(bitmapArray, 0, bitmapArray.length);
+			holderView.iv_pic.setImageBitmap(bitmap);
+			holderView.tv_name.setText(arrayList.get(position).getG_name());
+			holderView.tv_price.setText("￥" + arrayList.get(position).getG_price()+ "元");
 
 		}
 		return currentView;
 	}
+
 
 	public class HolderView {
 

@@ -3,10 +3,12 @@ package com.itau.jingdong.ui;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Base64;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -29,6 +31,7 @@ import com.itau.jingdong.xListview.XListView;
 
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -46,6 +49,7 @@ public class SearchActivity extends BaseActivity implements XListView.IXListView
 	public List<Good> good = new ArrayList<Good>();
 	//显示所有商品的列表
 	private XListView listView;
+	public  Bitmap bitmap;
 
 
 	@Override
@@ -106,6 +110,15 @@ public class SearchActivity extends BaseActivity implements XListView.IXListView
 				Gson gson = new Gson();
 				good = gson.fromJson(temp, new TypeToken<List<Good>>() {
 				}.getType());
+				for(int i = 0;i < good.size();i++){
+					bitmap = operaton.getHttpBitmap(good.get(i).getG_pic(),2);
+					ByteArrayOutputStream baos = new ByteArrayOutputStream();// outputstream
+					bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+					byte[] appicon = baos.toByteArray();// 转为byte数组
+					String tp = Base64.encodeToString(appicon, Base64.DEFAULT);
+					good.get(i).setG_pic(tp);
+					System.out.println("转换成功！");
+				}
 			} else
 				good = null;
 			return good;

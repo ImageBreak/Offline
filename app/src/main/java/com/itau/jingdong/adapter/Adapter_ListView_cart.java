@@ -1,6 +1,11 @@
 package com.itau.jingdong.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.ImageLoader;
+import com.itau.jingdong.Operaton;
 import com.itau.jingdong.R;
 import com.itau.jingdong.http.CU_VolleyTool;
 
@@ -22,6 +28,8 @@ public class Adapter_ListView_cart extends BaseAdapter {
 	private Context context;
 	private ArrayList<HashMap<String, Object>> arrayList = new ArrayList<HashMap<String, Object>>();
 	private onCheckedChanged listener;
+	public Bitmap bitmap;
+	private HolderView holderView = null;
 
 	public Adapter_ListView_cart(Context context, ArrayList<HashMap<String, Object>> arrayList) {
 
@@ -51,7 +59,7 @@ public class Adapter_ListView_cart extends BaseAdapter {
 
 	@Override
 	public View getView(final int position, View currentView, ViewGroup arg2) {
-		HolderView holderView = null;
+
 		if (currentView == null) {
 			holderView = new HolderView();
 			currentView = LayoutInflater.from(context).inflate(R.layout.adapter_listview_cart, null);
@@ -65,20 +73,23 @@ public class Adapter_ListView_cart extends BaseAdapter {
 		} else {
 			holderView = (HolderView) currentView.getTag();
 		}
-		if (arrayList.size() != 0) {
-			ImageLoader.ImageListener listener1 = ImageLoader.getImageListener(holderView.iv_pic, R.drawable.ic_launcher, R.drawable.ic_launcher);
-			//CU_VolleyTool.getInstance(context).getmImageLoader().get(arrayList.get(position).get("pic").toString(), listener1);
+		if (arrayList.size() != 0  && !arrayList.get(position).get("pic").toString().equals("暂无图片")) {
+
+			byte[] bitmapArray;
+			bitmapArray = Base64.decode(arrayList.get(position).get("pic").toString(), Base64.DEFAULT);
+			bitmap = BitmapFactory.decodeByteArray(bitmapArray, 0, bitmapArray.length);
+			holderView.iv_pic.setImageBitmap(bitmap);
 			holderView.tv_num.setText("x" + arrayList.get(position).get("num"));
 			holderView.tv_type_color.setText("类型:" + arrayList.get(position).get("type").toString() + "    颜色:" + arrayList.get(position).get("color").toString());
 			holderView.tv_name.setText(arrayList.get(position).get("name").toString());
-			holderView.tv_price.setText("￥"+arrayList.get(position).get("price").toString());
+			holderView.tv_price.setText("￥" + arrayList.get(position).get("price").toString());
 			holderView.cb_choice.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 				@Override
 				public void onCheckedChanged(CompoundButton arg0, boolean choice) {
 					listener.getChoiceData(position, choice);
 				}
 			});
-		
+
 		
 		}
 		return currentView;

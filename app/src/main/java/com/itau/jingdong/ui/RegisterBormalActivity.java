@@ -94,15 +94,22 @@ public class RegisterBormalActivity extends Activity implements OnClickListener 
 				new Thread(new Runnable() {
 
 					public void run() {
-
 						Operaton operaton=new Operaton();
+						Message msg = new Message();
 						if(filepath != null) {
-							File file = new File(filepath);
+							try {
+								temp = operaton.addpic(filepath, "upload", 1);
+								if(temp != null && temp.getString("result").toString().equals("1"))
+									u_pic = temp.getString("imagepath").toString();
+								else
+									msg.obj = "-1";
+							}
+							catch(Exception e){
+								throw new RuntimeException(e);
+							}
+							//先进行图片上传的操作，然后服务器返回图片保存在服务器的路径，
 						}
-						//u_pic=operaton.uploadFile(file, "userimage", 1);
-						//先进行图片上传的操作，然后服务器返回图片保存在服务器的路径，
-						//System.out.println("photo---->"+photo);
-						User user=new User(u_name,"暂无图片",u_pay,u_pass,u_repass);
+						User user=new User(u_name,u_pic,u_pay,u_pass,u_repass);
 						//构造一个user对象
 						WriteJson writeJson=new WriteJson();
 						//将user对象写出json形式字符串
@@ -110,7 +117,6 @@ public class RegisterBormalActivity extends Activity implements OnClickListener 
 						System.out.println(jsonString);
 						temp= operaton.UpData("register.action", jsonString);
 						if(temp != null) {
-							Message msg = new Message();
 							try {
 								msg.obj = temp.getString("result").toString();
 							} catch (Exception e) {
@@ -146,6 +152,8 @@ public class RegisterBormalActivity extends Activity implements OnClickListener 
 					throw new RuntimeException(e);
 				}
 			}
+			else if(msgobj.equals("-1"))
+				Toast.makeText(RegisterBormalActivity.this, "图片上传失败", Toast.LENGTH_SHORT).show();
 			super.handleMessage(msg);
 		}
 	};
